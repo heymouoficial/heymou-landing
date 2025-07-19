@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight } from 'lucide-react'
 
@@ -21,7 +20,6 @@ const scrollToSection = (id: string) => {
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   const [mounted, setMounted] = useState(false)
   

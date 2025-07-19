@@ -29,7 +29,11 @@ export const metadata: Metadata = {
   description: "Consultor estratégico, visionario y tecnológico. Transformo ideas audaces en ecosistemas digitales funcionales, humanos y minimalistas.",
   keywords: ["consultoría", "estrategia digital", "arquitectura", "minimalismo", "tecnología"],
   authors: [{ name: "HeyMou" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
