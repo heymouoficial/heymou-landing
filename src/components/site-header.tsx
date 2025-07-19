@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { createPortal } from "react-dom"
-import Link from "next/link"
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight } from 'lucide-react'
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
@@ -29,69 +30,74 @@ export function SiteHeader() {
   }, [])
 
   const MobileMenu = () => (
-    <div className={cn(
-      "fixed inset-0 z-[9999] md:hidden",
-      isMenuOpen ? "block" : "hidden"
-    )}>
+    <motion.div 
+      className="fixed inset-0 z-[9999] md:hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isMenuOpen ? 1 : 0 }}
+      transition={{ 
+        duration: 0.2,
+        delay: isMenuOpen ? 0 : 0.2
+      }}
+      style={{ 
+        pointerEvents: isMenuOpen ? 'auto' : 'none',
+        display: isMenuOpen ? 'block' : 'none'
+      }}
+    >
       {/* Backdrop */}
-      <div 
+      <motion.div 
         className="fixed inset-0 bg-black/50 backdrop-blur-sm"
         onClick={() => setIsMenuOpen(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isMenuOpen ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
       />
       
       {/* Drawer */}
-      <div className={cn(
-        "fixed top-0 right-0 h-full w-4/5 max-w-sm bg-background shadow-2xl",
-        "flex flex-col pt-20 px-6 overflow-y-auto transition-transform duration-300 ease-in-out",
-        isMenuOpen ? "translate-x-0" : "translate-x-full"
-      )}>
+      <motion.div 
+        className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-background shadow-2xl flex flex-col pt-20 px-6 overflow-y-auto"
+        initial={{ x: '100%' }}
+        animate={{ 
+          x: isMenuOpen ? '0%' : '100%',
+          transition: {
+            type: 'spring',
+            stiffness: 300,
+            damping: 30,
+            delay: isMenuOpen ? 0.2 : 0
+          }
+        }}
+      >
         {/* Close Button */}
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 p-2 rounded-full hover:bg-foreground/10 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-accent transition-colors"
           aria-label="Cerrar menú"
         >
           <X className="h-6 w-6" />
         </button>
-        
+
         {/* Navigation Links */}
-        <nav className="flex-1 flex flex-col space-y-6 py-8">
-          <button 
-            onClick={() => {
-              setIsMenuOpen(false);
-              scrollToSection('manifiesto');
-            }}
-            className="text-xl font-medium text-foreground/90 hover:text-foreground transition-colors cursor-pointer py-3 px-4 rounded-lg hover:bg-foreground/5 text-left"
-          >
-            Manifiesto
-          </button>
-          <button 
-            onClick={() => {
-              setIsMenuOpen(false);
-              scrollToSection('expertise');
-            }}
-            className="text-xl font-medium text-foreground/90 hover:text-foreground transition-colors cursor-pointer py-3 px-4 rounded-lg hover:bg-foreground/5 text-left"
-          >
-            Expertise
-          </button>
-          <button 
-            onClick={() => {
-              setIsMenuOpen(false);
-              scrollToSection('casos');
-            }}
-            className="text-xl font-medium text-foreground/90 hover:text-foreground transition-colors cursor-pointer py-3 px-4 rounded-lg hover:bg-foreground/5 text-left"
-          >
-            Casos de estudio
-          </button>
-          <button 
-            onClick={() => {
-              setIsMenuOpen(false);
-              scrollToSection('testimonios');
-            }}
-            className="text-xl font-medium text-foreground/90 hover:text-foreground transition-colors cursor-pointer py-3 px-4 rounded-lg hover:bg-foreground/5 text-left"
-          >
-            Testimonios
-          </button>
+        <nav className="flex-1 space-y-6 py-8">
+          {[
+            { name: 'Inicio', href: '#inicio' },
+            { name: 'Manifiesto', href: '#manifiesto' },
+            { name: 'Expertise', href: '#expertise' },
+            { name: 'Casos de Estudio', href: '#casos' },
+            { name: 'Testimonios', href: '#testimonios' },
+            { name: 'Contacto', href: '#contacto' },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault()
+                setIsMenuOpen(false)
+                scrollToSection(item.href.substring(1))
+              }}
+              className="block text-2xl font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-foreground/5"
+            >
+              {item.name}
+            </a>
+          ))}
         </nav>
         
         {/* CTA Button */}
@@ -111,8 +117,8 @@ export function SiteHeader() {
             </span>
           </Button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 
   return (

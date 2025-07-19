@@ -1,6 +1,7 @@
 "use client"
 
-import { ArrowRightIcon, ChevronRightIcon, GithubIcon, InstagramIcon, TwitterIcon, MessageSquareIcon, MusicIcon, CalendarIcon } from "lucide-react"
+import { ArrowRightIcon, ChevronRightIcon, GithubIcon, InstagramIcon, TwitterIcon, CalendarIcon } from "lucide-react"
+import { TiktokIcon } from "@/components/ui/icons"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -290,8 +291,7 @@ export default function Home() {
               <div className="flex justify-start space-x-6 py-4">
                 <SocialLink href="https://github.com/heymouoficial" icon={GithubIcon} />
                 <SocialLink href="https://instagram.com/heymouoficial" icon={InstagramIcon} />
-                <SocialLink href="https://threads.net/@heymouoficial" icon={MessageSquareIcon} />
-                <SocialLink href="https://tiktok.com/@heymouoficial" icon={MusicIcon} />
+                <SocialLink href="https://tiktok.com/@heymouoficial" icon={TiktokIcon} title="TikTok" />
                 <SocialLink href="https://twitter.com/heymouoficial" icon={TwitterIcon} />
               </div>
             </FadeIn>
@@ -311,7 +311,15 @@ export default function Home() {
 }
 
 // Social Link Component
-function SocialLink({ href, icon: Icon }: { href: string; icon: React.ComponentType<{ className?: string }> }) {
+function SocialLink({ 
+  href, 
+  icon: Icon, 
+  title 
+}: { 
+  href: string; 
+  icon: React.ComponentType<{ className?: string }>;
+  title?: string;
+}) {
   // Safely extract domain for aria-label
   const domain = (() => {
     try {
@@ -328,7 +336,7 @@ function SocialLink({ href, icon: Icon }: { href: string; icon: React.ComponentT
       target="_blank" 
       rel="noopener noreferrer"
       className="text-muted-foreground hover:text-foreground transition-colors"
-      aria-label={`Visit our ${domain} profile`}
+      aria-label={title ? `Visit our ${title} profile` : `Visit our ${domain} profile`}
     >
       <Icon className="h-5 w-5" />
     </Link>
