@@ -6,7 +6,7 @@ import React from "react"
 
 const testimonials = [
   {
-    name: "Marcos Utrerar",
+    name: "Marcos Utrera",
     title: "Presidente, Mini Universo",
     quote: "En estos 3 años, la visión estratégica de Mou ha sido clave para la expansión de Mini Universo. Un verdadero socio de negocio."
   },
@@ -16,19 +16,24 @@ const testimonials = [
     quote: "Más que un consultor, Mou es un pilar en mis emprendimientos. Su capacidad para ejecutar la visión de Armeni y AutoMVD ha sido fundamental durante estos 5 años."
   },
   {
-    name: "Roxana Della Croca",
+    name: "Roxana Della Croce",
     title: "Camino El Portal del Alma & NOPA",
     quote: "La sinergia con Mou es única. Durante 5 años, ha traducido nuestras ideas más complejas en soluciones digitales claras y con alma."
   },
+  {
+    name: "Nicolas Mallo",
+    title: "NOPA",
+    quote: "Mou es un profesional dedicado con pasión en su trabajo, nuestra experiencia desde el inicio fue excelente."
+  },  
   {
     name: "Runa Quantum",
     title: "Directora Artística, Biohacking Cuántico",
     quote: "Nuestra colaboración trasciende lo profesional. Como socia, veo de primera mano cómo Mou convierte conceptos abstractos en realidades funcionales y estéticas."
   },
   {
-    name: "Genesis Rojas",
-    title: "Soporte Técnico a Wordpress, Inproim",
-    quote: "La tranquilidad de saber que el soporte técnico está en manos de un experto como Mou no tiene precio. Resuelve, previene y optimiza."
+    name: "Mauro Cavallo",
+    title: "Co Fundador, Tatua Company",
+    quote: "Mou tiene una capacidad única para alinear la visión holística de un proyecto con una estrategia de negocio sólida. Su consultoría ha sido vital para Tatua."
   },
   {
     name: "Gabriel Sthormes",
@@ -37,18 +42,13 @@ const testimonials = [
   },
   {
     name: "Carmelo Petti",
-    title: "Consultor Creativo",
+    title: "Consultor de Negocios",
     quote: "Llevamos más de una década colaborando. La creatividad y el criterio de Mou para abordar proyectos, incluso en sus fases más tempranas, son excepcionales."
   },
   {
     name: "Raymond Azar",
-    title: "Consultor Tecnológico",
+    title: "Analista Político | Creador de contenido",
     quote: "En un sector tan cambiante, contar con un consultor como Mou es una ventaja competitiva. Dos años de colaboración y resultados tangibles."
-  },
-  {
-    name: "Mauro Cavallo",
-    title: "Consultor Holístico, Tatua Company",
-    quote: "Mou tiene una capacidad única para alinear la visión holística de un proyecto con una estrategia de negocio sólida. Su consultoría ha sido vital para Tatua."
   },
 ]
 
