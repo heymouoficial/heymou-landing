@@ -3,6 +3,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure sections snap into place */
+section {
+  scroll-margin-top: 5rem; /* Adjust based on your header height */
+}
+
 :root {
   --background: oklch(0.9551 0.0146 106.6720);
   --foreground: oklch(0.1776 0 0);

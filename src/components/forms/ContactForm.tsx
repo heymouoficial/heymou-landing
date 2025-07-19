@@ -63,63 +63,67 @@ export function ContactForm() {
 
   return (
     <Card className="p-8 bg-card border-border">
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-2">Nombre</label>
-          <Input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleInputChange}
-            placeholder="Tu nombre"
-            disabled={isLoading}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="tu@email.com"
-            disabled={isLoading}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="projectType" className="block text-sm font-medium mb-2">Tipo de Proyecto</label>
-          <Select onValueChange={handleSelectChange("projectType")} value={formData.projectType} disabled={isLoading} required>
-            <SelectTrigger>
-              <SelectValue placeholder="Selecciona una opción..." />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="consultoria">Consultoría Estratégica</SelectItem>
-              <SelectItem value="diseno-producto">Diseño de Producto (UX/UI)</SelectItem>
-              <SelectItem value="desarrollo-web">Desarrollo Web/App</SelectItem>
-              <SelectItem value="automatizacion">Automatización y Flujos</SelectItem>
-              <SelectItem value="otro">Otro</SelectItem>
-            </SelectContent>
-          </Select>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">Nombre</label>
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Tu nombre"
+              disabled={isLoading}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="tu@email.com"
+              disabled={isLoading}
+              required
+            />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="budget" className="block text-sm font-medium mb-2">Presupuesto Estimado</label>
-          <Select onValueChange={handleSelectChange("budget")} value={formData.budget} disabled={isLoading} required>
-            <SelectTrigger>
-              <SelectValue placeholder="Selecciona un rango..." />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="600-1200">$600 - $1,200</SelectItem>
-              <SelectItem value="1200-3500">$1,200 - $3,500</SelectItem>
-              <SelectItem value="5000+">+$5,000</SelectItem>
-              <SelectItem value="discutir">Prefiero discutirlo</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="w-full">
+            <label htmlFor="projectType" className="block text-sm font-medium mb-2">Tipo de Proyecto</label>
+            <Select onValueChange={handleSelectChange("projectType")} value={formData.projectType} disabled={isLoading} required>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Selecciona una opción..." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="consultoria">Consultoría Estratégica</SelectItem>
+                <SelectItem value="diseno-producto">Diseño de Producto (UX/UI)</SelectItem>
+                <SelectItem value="desarrollo-web">Desarrollo Web/App</SelectItem>
+                <SelectItem value="automatizacion">Automatización y Flujos</SelectItem>
+                <SelectItem value="otro">Otro</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="w-full">
+            <label htmlFor="budget" className="block text-sm font-medium mb-2">Presupuesto Estimado</label>
+            <Select onValueChange={handleSelectChange("budget")} value={formData.budget} disabled={isLoading} required>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Selecciona un rango..." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="600-1200">$600 - $1,200</SelectItem>
+                <SelectItem value="1200-3500">$1,200 - $3,500</SelectItem>
+                <SelectItem value="5000+">+$5,000</SelectItem>
+                <SelectItem value="discutir">Prefiero discutirlo</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <div className="sm:col-span-2">
@@ -145,9 +149,11 @@ export function ContactForm() {
         <Button type="submit" className="w-full sm:col-span-2" disabled={isLoading}>
           {isLoading ? "Enviando..." : "Enviar Mensaje"}
         </Button>
-        <p className="text-xs text-muted-foreground text-center">
-          Al enviar este formulario aceptas que me contacte contigo para responder tu consulta.
-        </p>
+        <div className="w-full mt-2">
+          <p className="text-xs text-muted-foreground text-center leading-relaxed">
+            Al enviar este formulario, aceptas nuestra <a href="/politica-privacidad" className="text-primary hover:underline">Política de Privacidad</a> y que me ponga en contacto contigo para responder a tu consulta. No compartiremos tu información con terceros.
+          </p>
+        </div>
       </form>
     </Card>
   )

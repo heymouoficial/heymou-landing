@@ -1,4 +1,4 @@
-// BuildShip Client - Maneja todas las integraciones vía webhooks
+// BuildShip Client - Maneja la captura de leads vía webhooks
 // Siguiendo el workflow: frontend → BuildShip webhook → servicios
 
 export interface LeadData {
@@ -9,25 +9,11 @@ export interface LeadData {
   timestamp: string;
 }
 
-export interface ChatMessage {
-  message: string;
-  sessionId?: string;
-  userId?: string;
-  timestamp: string;
-}
-
 export interface BuildShipResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
   message?: string;
-}
-
-// Tipos específicos para respuestas de BuildShip
-export interface ChatResponse {
-  chatReply: string;
-  sessionId?: string;
-  context?: string;
 }
 
 export interface LeadResponse {
@@ -36,18 +22,16 @@ export interface LeadResponse {
   timestamp: string;
 }
 
-export interface DashboardResponse {
-  totalLeads: number;
-  totalChats: number;
-  conversionRate: number;
-  lastUpdated: string;
-}
-
 class BuildShipClient {
   private baseUrl: string;
 
   constructor() {
     this.baseUrl = process.env.NEXT_PUBLIC_BUILDSHIP_URL || '';
+    
+    // Throw a more descriptive error if the URL is not configured
+    if (!this.baseUrl && typeof window !== 'undefined') {
+      console.error('BuildShip URL is not configured. Please set NEXT_PUBLIC_BUILDSHIP_URL environment variable.');
+    }
   }
 
   // Lead Capture via BuildShip webhook
@@ -68,31 +52,6 @@ class BuildShipClient {
       return await response.json();
     } catch (error) {
       console.error('Error capturing lead:', error);
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error occurred',
-      };
-    }
-  }
-
-  // Chatbot interaction via BuildShip webhook
-  async chatInteractionWebhook(chatData: ChatMessage): Promise<BuildShipResponse<ChatResponse>> {
-    try {
-      const response = await fetch('/api/webhook-chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(chatData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error('Error in chat interaction:', error);
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -148,15 +107,4 @@ export const formatLeadData = (
   };
 };
 
-export const formatChatMessage = (
-  message: string,
-  sessionId?: string,
-  userId?: string
-): ChatMessage => {
-  return {
-    message: message.trim(),
-    sessionId,
-    userId,
-    timestamp: new Date().toISOString(),
-  };
-};
+

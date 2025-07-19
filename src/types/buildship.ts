@@ -15,34 +15,12 @@ export interface LeadSubmissionState {
   error: string | null;
 }
 
-export interface ChatState {
-  messages: ChatMessage[];
-  isLoading: boolean;
-  isConnected: boolean;
-  sessionId: string;
-  error: string | null;
-}
-
-export interface ChatMessage {
-  id: string;
-  content: string;
-  sender: 'user' | 'bot';
-  timestamp: Date;
-  type?: 'text' | 'typing' | 'error';
-}
-
 export interface BuildShipWebhookPayload {
-  leadCapture?: {
+  leadCapture: {
     name: string;
     email: string;
     message: string;
     source: string;
-    timestamp: string;
-  };
-  chatInteraction?: {
-    message: string;
-    sessionId: string;
-    userId?: string;
     timestamp: string;
   };
 }
@@ -53,7 +31,6 @@ export interface BuildShipWebhookResponse {
   error?: string;
   message?: string;
   leadId?: string;
-  chatReply?: string;
   nextAction?: string;
 }
 
@@ -61,7 +38,6 @@ export interface DashboardMetrics {
   totalLeads: number;
   leadsToday: number;
   conversionRate: number;
-  chatInteractions: number;
   averageResponseTime: number;
 }
 

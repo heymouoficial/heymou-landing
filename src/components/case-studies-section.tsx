@@ -12,7 +12,7 @@ const caseStudies = [
   },
   {
     title: "SmartCatalogue",
-    description: "ETL AI First Chat para sincronización de catálogos corporativos en WooCommerce.",
+    description: "Solución ETL para sincronización de catálogos corporativos en WooCommerce.",
     tags: ["En pruebas (Privado)", "SaaS", "IA"],
     gridClass: "",
   },
@@ -25,7 +25,7 @@ const caseStudies = [
   {
     title: "Mini Universo",
     description: "Rebranding y estrategia de marca. Pendiente automatización de captación de franquicias.",
-    tags: ["En automatización", "Branding", "Chatbot"],
+    tags: ["En automatización", "Branding"],
     gridClass: "",
   },
   {
@@ -36,8 +36,8 @@ const caseStudies = [
   },
   {
     title: "Tatua",
-    description: "Marca de ropa PrintOnDemand con ADN Italo/Venezolano. Mismos atributos de chatbot y flujos.",
-    tags: ["En espera de lanzamiento", "E-commerce", "Chatbot"],
+    description: "Marca de ropa PrintOnDemand con ADN Italo/Venezolano.",
+    tags: ["En espera de lanzamiento", "E-commerce"],
     gridClass: "lg:col-span-2",
   },
   {
