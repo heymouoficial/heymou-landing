@@ -77,7 +77,7 @@ function ExpertiseCard({ item, index }: { item: ExpertiseItemType; index: number
 
 export function ExpertiseSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-block bg-foreground/5 text-foreground/80 text-sm font-medium px-4 py-1.5 rounded-full mb-4">

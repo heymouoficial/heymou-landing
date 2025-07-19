@@ -230,78 +230,120 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contacto" className="py-24 scroll-mt-20">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <FadeIn delay={0.1}>
+              <div className="inline-block bg-foreground/5 text-foreground/80 text-sm font-medium px-4 py-1.5 rounded-full mb-4">
+                Conectemos
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Hablemos de negocios
+              </h2>
+              <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                ¿Tienes una idea audaz que necesita claridad y estructura? Hablemos sobre cómo transformarla en realidad.
+              </p>
+            </FadeIn>
+          </div>
+          
           <div className="mx-auto max-w-2xl lg:max-w-none">
-            <div className="text-left">
-              <FadeIn delay={0.1}>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-16">
-                  Hablemos de negocios
-                </h2>
-              </FadeIn>
-              
-              <div className="grid md:grid-cols-2 gap-12" id="formulario">
-                <div className="text-left">
-                  <h3 className="text-2xl font-semibold mb-6">Conectemos</h3>
-                  <p className="text-lg text-muted-foreground mb-8">
-                    ¿Tienes una idea audaz que necesita claridad y estructura? Hablemos sobre cómo transformarla en realidad.
-                  </p>
-                  
-                  <div className="space-y-4 text-left">
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">hi@heymou.com</p>
-                    </div>
-                    <div>
-                      <p className="font-medium">Respuesta</p>
-                      <p className="text-muted-foreground">&lt; 24 horas</p>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-12" id="formulario">
+              <div className="text-left">
+                <h3 className="text-2xl font-semibold mb-6">Conectemos</h3>
+                <p className="text-lg text-muted-foreground mb-8">
+                  ¿Tienes una idea audaz que necesita claridad y estructura? Hablemos sobre cómo transformarla en realidad.
+                </p>
+                
+                <div className="space-y-4 text-left">
+                  <div>
+                    <p className="font-medium">Email</p>
+                    <p className="text-muted-foreground">hi@heymou.com</p>
+                  </div>
+                  <div>
+                    <p className="font-medium">Respuesta</p>
+                    <p className="text-muted-foreground">&lt; 24 horas</p>
                   </div>
                 </div>
-                
-                <motion.div 
-                  className="w-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3, type: 'spring' }}
-                >
-                  <ContactForm />
-                </motion.div>
               </div>
+              
+              <motion.div 
+                className="w-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, type: 'spring' }}
+              >
+                <ContactForm />
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t border-border w-full">
+      <footer className="w-full bg-background">
+        <hr className="border-t border-border w-screen -ml-4" />
         <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16" style={{ maxWidth: '1240px' }}>
-          <div className="flex flex-col space-y-8">
-            {/* First Row: Branding */}
-            <FadeIn delay={0.1} className="w-full">
-              <div className="flex flex-col space-y-2">
-                <span className="font-bold text-xl">HeyMou</span>
-                <p className="text-sm text-muted-foreground">
-                  Claridad en la Complejidad Digital
-                </p>
-              </div>
-            </FadeIn>
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start space-y-8 md:space-y-0">
+            {/* Mobile Layout */}
+            <>
+              <FadeIn delay={0.1} className="w-full md:hidden">
+                <div className="flex flex-col space-y-2">
+                  <span className="font-bold text-xl">HeyMou</span>
+                  <p className="text-sm text-muted-foreground">
+                    Claridad en la Complejidad Digital
+                  </p>
+                </div>
+              </FadeIn>
 
-            {/* Second Row: Social Links - Left aligned on mobile and up */}
-            <FadeIn delay={0.2} className="w-full">
-              <div className="flex justify-start space-x-6 py-4">
-                <SocialLink href="https://github.com/heymouoficial" icon={GithubIcon} />
-                <SocialLink href="https://instagram.com/heymouoficial" icon={InstagramIcon} />
-                <SocialLink href="https://tiktok.com/@heymouoficial" icon={TiktokIcon} title="TikTok" />
-                <SocialLink href="https://twitter.com/heymouoficial" icon={TwitterIcon} />
-              </div>
-            </FadeIn>
+              <div className="w-full md:hidden">
+                <FadeIn delay={0.2} className="w-full">
+                  <div className="flex justify-start space-x-6 py-4">
+                    <SocialLink href="https://github.com/heymouoficial" icon={GithubIcon} />
+                    <SocialLink href="https://instagram.com/heymouoficial" icon={InstagramIcon} />
+                    <SocialLink href="https://tiktok.com/@heymouoficial" icon={TiktokIcon} title="TikTok" />
+                    <SocialLink href="https://twitter.com/heymouoficial" icon={TwitterIcon} />
+                  </div>
+                </FadeIn>
 
-            {/* Third Row: Copyright */}
-            <FadeIn delay={0.3} className="w-full">
-              <p className="text-sm text-muted-foreground pt-4 border-t border-border">
-                &copy; {new Date().getFullYear()} HeyMou. Hecho con ❤️ cuántico, por mi mismo.
-              </p>
-            </FadeIn>
+                <FadeIn delay={0.3} className="w-full">
+                  <p className="text-sm text-muted-foreground pt-4 border-t border-border">
+                    &copy; {new Date().getFullYear()} HeyMou. Hecho con ❤️ cuántico, por mi mismo.
+                  </p>
+                </FadeIn>
+              </div>
+            </>
+
+            {/* Desktop/Tablet Layout - 50/50 */}
+            <>
+              {/* Left Side - Branding */}
+              <div className="hidden md:flex md:flex-col md:w-1/2">
+                <FadeIn delay={0.1}>
+                  <div className="flex flex-col space-y-2">
+                    <span className="font-bold text-xl">HeyMou</span>
+                    <p className="text-sm text-muted-foreground">
+                      Claridad en la Complejidad Digital
+                    </p>
+                  </div>
+                </FadeIn>
+              </div>
+              
+              {/* Right Side - Social Links and Copyright */}
+              <div className="hidden md:flex md:flex-col md:items-end md:w-1/2 space-y-6">
+                <FadeIn delay={0.2} className="w-full">
+                  <div className="flex justify-end space-x-6 py-4">
+                    <SocialLink href="https://github.com/heymouoficial" icon={GithubIcon} />
+                    <SocialLink href="https://instagram.com/heymouoficial" icon={InstagramIcon} />
+                    <SocialLink href="https://tiktok.com/@heymouoficial" icon={TiktokIcon} title="TikTok" />
+                    <SocialLink href="https://twitter.com/heymouoficial" icon={TwitterIcon} />
+                  </div>
+                </FadeIn>
+
+                <FadeIn delay={0.3} className="w-full">
+                  <p className="text-sm text-muted-foreground pt-4 border-t border-border text-right">
+                    &copy; {new Date().getFullYear()} HeyMou. Hecho con ❤️ cuántico, por mi mismo.
+                  </p>
+                </FadeIn>
+              </div>
+            </>
           </div>
         </div>
       </footer>
