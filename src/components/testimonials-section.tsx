@@ -79,7 +79,7 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-block bg-foreground/5 text-foreground/80 text-sm font-medium px-4 py-1.5 rounded-full mb-4">
-            Voces de Confianza
+            Experiencias Reales
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Testimonios
