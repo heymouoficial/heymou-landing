@@ -15,27 +15,27 @@ const manifestoItems: ManifestoItemType[] = [
   {
     icon: <Sparkles className="w-6 h-6" />,
     title: "Innovación Constante",
-    description: "Buscamos siempre estar a la vanguardia tecnológica, adoptando las últimas tendencias y herramientas para ofrecer soluciones de punta."
+    description: "Busco estar siempre a la vanguardia tecnológica, adoptando las últimas tendencias y herramientas para ofrecer soluciones de punta."
   },
   {
     icon: <Eye className="w-6 h-6" />,
     title: "Transparencia Radical",
-    description: "Creemos en la comunicación clara y honesta. Nuestro proceso es abierto y te mantendremos informado en cada paso del camino."
+    description: "Creo en la comunicación clara y honesta. Mi proceso es abierto y te mantendré informado en cada paso del camino."
   },
   {
     icon: <Code className="w-6 h-6" />,
     title: "Código Limpio",
-    description: "Nos comprometemos a escribir código limpio, mantenible y bien documentado que perdure en el tiempo."
+    description: "Me comprometo a escribir código limpio, mantenible y bien documentado que perdure en el tiempo."
   },
   {
     icon: <Heart className="w-6 h-6" />,
     title: "Pasión por el Detalle",
-    description: "Cada píxel, cada interacción y cada línea de código recibe nuestra atención meticulosa."
+    description: "Cada píxel, cada interacción y cada línea de código recibe mi atención meticulosa."
   },
   {
     icon: <Zap className="w-6 h-6" />,
     title: "Rendimiento",
-    description: "Optimizamos cada aspecto para ofrecer experiencias rápidas, fluidas y eficientes."
+    description: "Optimizo cada aspecto para ofrecer experiencias rápidas, fluidas y eficientes."
   }
 ]
 
@@ -82,8 +82,8 @@ export function ManifestoSection() {
             Claridad en la Complejidad Digital
           </h2>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Creemos en la simplicidad elegante, la innovación práctica y las soluciones que
-            realmente importan.
+            Creo en la simplicidad elegante, la innovación práctica y las soluciones que
+            realmente importan para ti y tu negocio.
           </p>
         </div>
 
@@ -94,11 +94,15 @@ export function ManifestoSection() {
         </div>
 
         <div className="text-center mt-16">
-          <Link href="/contacto">
+          <Link href="#contacto" scroll={false}>
             <motion.div
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 transition-all group text-lg font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 transition-all group text-lg font-medium cursor-pointer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Trabajemos juntos
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
