@@ -1,0 +1,138 @@
+{
+  "loading": "Cargando...",
+  "error": "Error",
+  "success": "Éxito",
+  "submit": "Enviar",
+  "cancel": "Cancelar",
+  "close": "Cerrar",
+  "readMore": "Leer más",
+  "contactUs": "Contáctanos",
+  "learnMore": "Conoce más",
+  "home": "Inicio",
+  "services": "Servicios",
+  "portfolio": "Portafolio",
+  "blog": "Blog",
+  "about": "Acerca de",
+  "contact": "Contacto",
+  "language": "Idioma",
+  "spanish": "Español",
+  "english": "Inglés",
+  "hero": {
+    "title": "Tus ideas merecen un",
+    "titleHighlight": "aliado tecnológico",
+    "subtitle": "Transformo ideas ambiciosas en resultados tangibles a través de la tecnología. Estrategia, diseño y desarrollo que conecta con tu audiencia.",
+    "ctaPrimary": "Trabajemos Juntos",
+    "ctaSecondary": "Ver Mi Trabajo",
+    "stats": {
+      "projects": "+50 Proyectos",
+      "experience": "+10 Años",
+      "countries": "3 Países"
+    }
+  },
+  "servicesSection": {
+    "badge": "Cómo Te Ayudo",
+    "title": "Tu Aliado Tecnológico Integral",
+    "subtitle": "Desde la idea hasta la implementación, te acompaño en cada paso del camino. Estrategia, diseño y desarrollo que transforma sueños en realidad digital.",
+    "items": [
+      {
+        "title": "Estrategia & Consultoría",
+        "description": "Transformo tu visión en un plan ejecutable. Como tu aliado tecnológico, analizo profundamente tu negocio para crear roadmaps claros y decisiones inteligentes.",
+        "points": [
+          "Arquitectura de soluciones escalables",
+          "Estrategia tecnológica personalizada",
+          "Optimización de procesos digitales"
+        ]
+      },
+      {
+        "title": "Diseño & Experiencia",
+        "description": "Interfaces que conectan emocionalmente con tu audiencia. Diseño centrado en el usuario que convierte visitantes en clientes fieles y comprometidos.",
+        "points": [
+          "Diseño UX/UI que convierte",
+          "Prototipado interactivo rápido",
+          "Sistemas de diseño escalables"
+        ]
+      },
+      {
+        "title": "Desarrollo & Automatización",
+        "description": "Código limpio, escalable y eficiente que crece contigo. Desarrollo full-stack e integraciones inteligentes que potencian y automatizan tu negocio.",
+        "points": [
+          "Aplicaciones web y móviles robustas",
+          "Integraciones API complejas",
+          "Automatización de flujos de trabajo"
+        ]
+      }
+    ],
+    "cta": {
+      "question": "¿Listo para transformar tu sueño en realidad digital?",
+      "button": "Hablemos de tu proyecto"
+    }
+  },
+  "successStoriesSection": {
+    "badge": "Del Sueño a la Realidad",
+    "title": "Historias que Inspiran",
+    "subtitle": "Cada proyecto es una historia de transformación. Descubre cómo otros emprendedores han materializado sus sueños tecnológicos junto a su aliado ideal.",
+    "stories": [
+      {
+        "title": "De Idea a Plataforma Líder",
+        "clientName": "María González",
+        "industry": "E-commerce",
+        "challenge": "Tenía una idea brillante para revolucionar las compras online, pero no sabía por dónde empezar técnicamente.",
+        "solution": "Desarrollamos una plataforma completa con experiencia de usuario excepcional y automatización inteligente.",
+        "results": [
+          "300% aumento en conversiones",
+          "50,000+ usuarios activos",
+          "Expansión a 5 países"
+        ],
+        "testimonial": {
+          "quote": "No solo encontré un desarrollador, encontré un verdadero aliado que entendió mi visión y la hizo realidad. Su enfoque estratégico transformó completamente mi negocio.",
+          "author": "María González",
+          "position": "CEO, ShopSmart"
+        },
+        "duration": "4 meses",
+        "technologies": ["Next.js", "Stripe", "AI Integration"]
+      },
+      {
+        "title": "Automatización que Libera Tiempo",
+        "clientName": "Carlos Mendoza",
+        "industry": "Consultoría",
+        "challenge": "Perdía 20 horas semanales en tareas repetitivas que me alejaban de mis clientes más importantes.",
+        "solution": "Creamos un sistema de automatización personalizado que integra todas sus herramientas de trabajo.",
+        "results": [
+          "20 horas semanales recuperadas",
+          "90% reducción en errores manuales",
+          "200% crecimiento en facturación"
+        ],
+        "testimonial": {
+          "quote": "La automatización no solo me devolvió mi tiempo, me devolvió mi pasión por el negocio. Ahora puedo enfocarme en lo que realmente importa: mis clientes.",
+          "author": "Carlos Mendoza",
+          "position": "Fundador, ConsultPro"
+        },
+        "duration": "2 meses",
+        "technologies": ["Zapier", "Airtable", "Custom APIs"]
+      },
+      {
+        "title": "Startup que Conquistó el Mercado",
+        "clientName": "Ana Rodríguez",
+        "industry": "FinTech",
+        "challenge": "Necesitaba una aplicación móvil robusta para competir con gigantes establecidos en el sector financiero.",
+        "solution": "Desarrollamos una app nativa con seguridad bancaria y experiencia de usuario superior.",
+        "results": [
+          "100,000+ descargas en 6 meses",
+          "4.8 estrellas en app stores",
+          "Serie A de $2M levantada"
+        ],
+        "testimonial": {
+          "quote": "Su experiencia técnica y visión estratégica fueron clave para nuestro éxito. Nos ayudó a competir de igual a igual con empresas 100 veces más grandes.",
+          "author": "Ana Rodríguez",
+          "position": "CTO, FinanceFlow"
+        },
+        "duration": "6 meses",
+        "technologies": ["React Native", "Blockchain", "AWS"]
+      }
+    ],
+    "cta": {
+      "question": "¿Listo para escribir tu propia historia de éxito?",
+      "button": "Comencemos tu transformación"
+    }
+  }
+}

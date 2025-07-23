@@ -1,26 +1,438 @@
 @import "tailwindcss";
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure sections snap into place */
+section {
+  scroll-margin-top: 5rem;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark theme with neutral-900 base and blue accents */
+  --background: #010101;
+  /* neutral-900 */
+  --foreground: #fafafa;
+  --card: #010101;
+  /* neutral-900 */
+  --card-foreground: #fafafa;
+  --popover: #010101;
+  /* neutral-900 */
+  --popover-foreground: #fafafa;
+
+  /* Sky blue primary - #0059FF */
+  --primary: #00153D;
+  /* Sky blue */
+  --primary-foreground: #ffffff;
+  --primary-hover: #0047CC;
+  /* Lighter sky blue */
+  --primary-light: #1F6DFF;
+  /* Even lighter sky blue */
+
+  /* Neutrals consistent with neutral-900 theme */
+  --secondary: #262626;
+  /* neutral-800 */
+  --secondary-foreground: #fafafa;
+  --muted: #404040;
+  /* neutral-700 */
+  --muted-foreground: #a3a3a3;
+  /* neutral-400 */
+  --accent: #262626;
+  /* neutral-800 */
+  --accent-foreground: #fafafa;
+
+  /* Borders with neutral theme */
+  --border: #404040;
+  /* neutral-700 */
+  --border-hover: rgba(0, 89, 255, 0.3);
+  /* sky blue with opacity */
+  --input: #404040;
+  /* neutral-700 */
+
+  /* Ring with sky blue */
+  --ring: rgba(0, 89, 255, 0.4);
+  /* sky blue with opacity */
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+
+  /* Typography */
+  --font-sans: "Cabinet Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Shadows with sky blue tint */
+  --shadow-blue: 0px 4px 20px rgba(0, 89, 255, 0.2);
+  /* sky blue shadow */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+* {
+  border-color: var(--border);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Custom hover effects with subtle blue gradients */
+.hover-blue-gradient {
+  transition: all 0.3s ease;
+}
+
+.hover-blue-gradient:hover {
+  background: linear-gradient(135deg, rgba(0, 89, 255, 0.1) 0%, rgba(0, 89, 255, 0.05) 100%);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-blue);
+}
+
+/* Smooth border transitions */
+.border-smooth {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.border-smooth:hover {
+  border-color: var(--border-hover);
+}
+
+/* Shiny Button Effect */
+.btn-shiny {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-shiny::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.btn-shiny:hover::before {
+  left: 100%;
+}
+
+.btn-shiny:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-light) 100%);
+  box-shadow: 0 8px 32px rgba(0, 89, 255, 0.4), 0 4px 16px rgba(0, 89, 255, 0.2);
+}
+
+.btn-shiny>* {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flickering Grid Effect */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 0.2;
+  }
+  20%, 24%, 55% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.flickering-grid {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grid-container {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 89, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 89, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+}
+
+.grid-square {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 89, 255, 0.25);
+  animation: flicker 3s infinite;
+  border: 1px solid rgba(0, 89, 255, 0.15);
+}
+
+.grid-square.shimmer {
+  animation: shimmer 2s infinite;
+  background: rgba(0, 89, 255, 0.35);
+  box-shadow: 0 0 8px rgba(0, 89, 255, 0.25);
+}
+
+/* Legacy button gradient for compatibility */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-light) 100%);
+  box-shadow: var(--shadow-blue);
+}
+
+/* Beams Background Effect */
+@keyframes beam {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100vw) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+.beams-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.beam {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(0, 89, 255, 1), rgba(77, 138, 255, 0.8), rgba(0, 89, 255, 1), transparent);
+  animation: beam 8s linear infinite;
+  box-shadow:
+    0 0 10px rgba(0, 89, 255, 0.8),
+    0 0 20px rgba(0, 89, 255, 0.6),
+    0 0 30px rgba(0, 89, 255, 0.4);
+  filter: blur(0.5px);
+}
+
+.beam:nth-child(1) {
+  top: 20%;
+  width: 200px;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.beam:nth-child(2) {
+  top: 40%;
+  width: 300px;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.beam:nth-child(3) {
+  top: 60%;
+  width: 150px;
+  animation-delay: 4s;
+  animation-duration: 7s;
+}
+
+.beam:nth-child(4) {
+  top: 80%;
+  width: 250px;
+  animation-delay: 6s;
+  animation-duration: 9s;
+}
+
+.beam:nth-child(5) {
+  top: 30%;
+  width: 180px;
+  animation-delay: 1s;
+  animation-duration: 11s;
+}
+
+.beam:nth-child(6) {
+  top: 70%;
+  width: 220px;
+  animation-delay: 3s;
+  animation-duration: 8.5s;
+}
+
+/* Additional beam variants with different intensities */
+.beam:nth-child(7) {
+  top: 15%;
+  width: 280px;
+  animation-delay: 5.5s;
+  animation-duration: 12s;
+  height: 2px;
+  box-shadow:
+    0 0 15px rgba(0, 89, 255, 0.9),
+    0 0 25px rgba(0, 89, 255, 0.7),
+    0 0 35px rgba(0, 89, 255, 0.5);
+}
+
+.beam:nth-child(8) {
+  top: 85%;
+  width: 160px;
+  animation-delay: 7s;
+  animation-duration: 6s;
+  height: 4px;
+  box-shadow:
+    0 0 8px rgba(0, 89, 255, 1),
+    0 0 16px rgba(0, 89, 255, 0.8),
+    0 0 24px rgba(0, 89, 255, 0.6);
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* Floating particles effect */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.8;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(0, 89, 255, 0.6);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(0, 89, 255, 0.8);
+}
+
+.particle:nth-child(odd) {
+  animation-delay: 2s;
+  animation-duration: 8s;
+}
+
+.particle:nth-child(even) {
+  animation-delay: 4s;
+  animation-duration: 7s;
+}
+
+/* Tailwind color mappings */
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-foreground {
+  background-color: var(--foreground);
+}
+
+.bg-card {
+  background-color: var(--card);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-muted {
+  background-color: var(--muted);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-destructive {
+  background-color: var(--destructive);
+}
+
+.text-background {
+  color: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.text-card-foreground {
+  color: var(--card-foreground);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-primary-foreground {
+  color: var(--primary-foreground);
+}
+
+.text-secondary-foreground {
+  color: var(--secondary-foreground);
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground);
+}
+
+.text-accent-foreground {
+  color: var(--accent-foreground);
+}
+
+.text-destructive {
+  color: var(--destructive);
+}
+
+.text-destructive-foreground {
+  color: var(--destructive-foreground);
+}
+
+.border-border {
+  border-color: var(--border);
+}
+
+.border-input {
+  border-color: var(--input);
+}
+
+.border-ring {
+  border-color: var(--ring);
+}
+
+.ring-ring {
+  --tw-ring-color: var(--ring);
 }

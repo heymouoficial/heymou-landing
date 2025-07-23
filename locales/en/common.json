@@ -1,0 +1,70 @@
+{
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "close": "Close",
+  "readMore": "Read more",
+  "contactUs": "Contact us",
+  "learnMore": "Learn more",
+  "home": "Home",
+  "services": "Services",
+  "portfolio": "Portfolio",
+  "blog": "Blog",
+  "about": "About",
+  "contact": "Contact",
+  "language": "Language",
+  "spanish": "Spanish",
+  "english": "English",
+  "hero": {
+    "title": "Your ideas deserve a",
+    "titleHighlight": "technology ally",
+    "subtitle": "I transform ambitious ideas into tangible results through technology. Strategy, design and development that connects with your audience.",
+    "ctaPrimary": "Let's Work Together",
+    "ctaSecondary": "See My Work",
+    "stats": {
+      "projects": "+50 Projects",
+      "experience": "+10 Years",
+      "countries": "3 Countries"
+    }
+  },
+  "servicesSection": {
+    "badge": "How I Help You",
+    "title": "Your Comprehensive Technology Ally",
+    "subtitle": "From idea to implementation, I accompany you every step of the way. Strategy, design and development that transforms dreams into digital reality.",
+    "items": [
+      {
+        "title": "Strategy & Consulting",
+        "description": "I transform your vision into an executable plan. As your technology ally, I deeply analyze your business to create clear roadmaps and intelligent decisions.",
+        "points": [
+          "Scalable solution architecture",
+          "Personalized technology strategy",
+          "Digital process optimization"
+        ]
+      },
+      {
+        "title": "Design & Experience",
+        "description": "Interfaces that emotionally connect with your audience. User-centered design that converts visitors into loyal and engaged customers.",
+        "points": [
+          "Converting UX/UI design",
+          "Rapid interactive prototyping",
+          "Scalable design systems"
+        ]
+      },
+      {
+        "title": "Development & Automation",
+        "description": "Clean, scalable and efficient code that grows with you. Full-stack development and intelligent integrations that power and automate your business.",
+        "points": [
+          "Robust web and mobile applications",
+          "Complex API integrations",
+          "Workflow automation"
+        ]
+      }
+    ],
+    "cta": {
+      "question": "Ready to transform your dream into digital reality?",
+      "button": "Let's talk about your project"
+    }
+  }
+}
