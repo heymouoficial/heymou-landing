@@ -83,7 +83,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid var(--backup-border)',
       position: 'relative' as const,
-      touchAction: 'none' as const,
+      touchAction: 'pan-y pan-x' as const, // Allow scrolling on mobile
     } as React.CSSProperties;
 
     // Add width and height if provided
@@ -98,6 +98,37 @@ const GlowCard: React.FC<GlowCardProps> = ({
   };
 
   const beforeAfterStyles = `
+    /* Mobile-first: allow scrolling and prevent hover interference */
+    [data-glow] {
+      touch-action: pan-y pan-x;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Only enable spotlight effect on devices with precise pointers (desktop) */
+    @media (hover: hover) and (pointer: fine) {
+      [data-glow] {
+        touch-action: none;
+      }
+    }
+    
+    /* Disable spotlight effect on touch devices */
+    @media (hover: none) {
+      [data-glow]::before,
+      [data-glow]::after {
+        display: none;
+      }
+      
+      [data-glow] {
+        background-image: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+    
     [data-glow]::before,
     [data-glow]::after {
       pointer-events: none;

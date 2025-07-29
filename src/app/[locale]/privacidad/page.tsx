@@ -28,8 +28,8 @@ export default async function PrivacyPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-        <div className="prose prose-invert max-w-none">
+      <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-4 pt-32 pb-16">
+        <div className="prose prose-invert max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">
             {isSpanish ? 'Política de Privacidad' : 'Privacy Policy'}
           </h1>
