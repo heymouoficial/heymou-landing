@@ -140,7 +140,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
-        <div className="container flex items-center justify-between h-20 px-6 mx-auto">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8 xl:px-4">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-3">
             <Image 

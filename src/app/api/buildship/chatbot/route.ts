@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
 import { BuildShipResponse } from '../../../../../types/buildship';
+import { findBestResponse, getSuggestedQuestions } from '../../../../../lib/chatbot-knowledge';
 
 interface ChatbotRequest {
   message: string;
@@ -63,67 +64,73 @@ export async function POST(request: NextRequest) {
       telegramChatId: '', // Not used for website chat
     };
 
-    // BuildShip endpoint configuration
+    // Try BuildShip first, fallback to local knowledge base
     const buildShipUrl = 'https://2m5s5r.buildship.run/executeWorkflow/P8FqOO35EihjfxhgWdUW/f3941596-6c47-40f7-8dc1-f27f99a78bd5';
     const apiKey = process.env.BUILDSHIP_API_KEY;
+    
+    let chatbotResponse: string;
+    let responseSource = 'knowledge_base';
+    let suggestions: string[] = [];
 
-    if (!apiKey) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'BuildShip API key not configured',
-          timestamp: new Date().toISOString(),
-        } as BuildShipResponse,
-        { status: 500 }
-      );
-    }
+    // Simulate thinking delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1200));
 
-    // Make request to BuildShip chatbot workflow
-    const buildShipResponse = await fetch(buildShipUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'BUILDSHIP_API_KEY': apiKey,
-      },
-      body: JSON.stringify(buildShipPayload),
-    });
-
-    if (!buildShipResponse.ok) {
-      const errorText = await buildShipResponse.text();
-
-      // Log error for debugging in development
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.error('BuildShip chatbot request failed:', {
-          status: buildShipResponse.status,
-          statusText: buildShipResponse.statusText,
-          error: errorText,
+    // Try BuildShip if API key is available
+    if (apiKey) {
+      try {
+        const buildShipResponse = await fetch(buildShipUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'BUILDSHIP_API_KEY': apiKey,
+          },
+          body: JSON.stringify(buildShipPayload),
+          signal: AbortSignal.timeout(10000), // 10 second timeout
         });
+
+        if (buildShipResponse.ok) {
+          const result = await buildShipResponse.json();
+          chatbotResponse = result.response;
+          responseSource = 'buildship';
+          
+          if (process.env.NODE_ENV === 'development') {
+            console.log('✅ BuildShip response received');
+          }
+        } else {
+          throw new Error(`BuildShip API error: ${buildShipResponse.status}`);
+        }
+      } catch (error) {
+        if (process.env.NODE_ENV === 'development') {
+          console.log('⚠️ BuildShip unavailable, using local knowledge base:', error);
+        }
+        // Fallback to local knowledge base
+        chatbotResponse = findBestResponse(body.message, body.locale);
+        suggestions = Math.random() > 0.7 ? getSuggestedQuestions(body.locale).slice(0, 3) : [];
       }
-
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'Failed to process chatbot message',
-          timestamp: new Date().toISOString(),
-        } as BuildShipResponse,
-        { status: buildShipResponse.status }
-      );
+    } else {
+      // Use local knowledge base when no API key
+      if (process.env.NODE_ENV === 'development') {
+        console.log('💡 Using local knowledge base (no BuildShip API key)');
+      }
+      chatbotResponse = findBestResponse(body.message, body.locale);
+      suggestions = Math.random() > 0.7 ? getSuggestedQuestions(body.locale).slice(0, 3) : [];
     }
-
-    const result = await buildShipResponse.json();
 
     // Return success response
     const response: BuildShipResponse<ChatbotResponse> = {
       success: true,
       data: {
-        response: result.response || 'Lo siento, no pude procesar tu mensaje en este momento.',
+        response: chatbotResponse,
         sessionId: buildShipPayload.mensajePayload.sessionId,
         timestamp: new Date().toISOString(),
-        context: result.context,
+        context: {
+          source: responseSource,
+          suggestions,
+          locale: body.locale,
+        },
       },
       timestamp: new Date().toISOString(),
-      requestId: result.requestId,
+      requestId: `req_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`,
     };
 
     return NextResponse.json(response, { status: 200 });

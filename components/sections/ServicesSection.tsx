@@ -166,7 +166,7 @@ export default function ServicesSection() {
       id="servicios"
       className="py-24 scroll-mt-20"
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-4">
         {/* Header */}
         <motion.div
           className="text-center mb-16"

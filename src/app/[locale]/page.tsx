@@ -7,7 +7,7 @@ import HeroSection from '../../../components/sections/HeroSection';
 import ServicesSection from '../../../components/sections/ServicesSection';
 import SuccessStoriesSection from '../../../components/sections/SuccessStoriesSection';
 import BlogSection from '../../../components/sections/BlogSection';
-import { ContactSection } from '../../../components/sections/ContactSection';
+import { ContactCTA } from '../../../components/sections/ContactCTA';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -53,7 +53,7 @@ export default function Home() {
           <BlogSection />
         </section>
         <section id="contacto">
-          <ContactSection />
+          <ContactCTA />
         </section>
       </main>
       <SiteFooter />

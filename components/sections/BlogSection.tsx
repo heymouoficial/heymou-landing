@@ -9,7 +9,6 @@ import { GlowCard } from '../ui/spotlight-card';
 import { useTranslation } from '../../src/hooks/useTranslation';
 import { Button } from '../ui/Button';
 import { BlogPost, BlogSectionData } from '../../types';
-import { formatDate } from '../../lib/utils';
 
 // Animation variants
 const containerVariants: Variants = {
@@ -61,6 +60,27 @@ interface BlogCardProps {
 }
 
 function BlogCard({ post, index, locale, readingTimeLabel }: BlogCardProps) {
+  // Map post titles to slugs
+  const getSlugFromTitle = (title: string): string => {
+    const slugMap: { [key: string]: string } = {
+      '¿Por qué tu web necesita ser más que bonita?': 'por-que-tu-web-necesita-ser-mas-que-bonita',
+      'Automatización: Tu mejor empleado que nunca duerme': 'automatizacion-tu-mejor-empleado',
+      'BuildShip vs Zapier: ¿Cuál elegir para tu negocio?': 'buildship-vs-zapier-cual-elegir',
+      'Next.js explicado para emprendedores': 'nextjs-explicado-para-emprendedores',
+      'UX que vende: Diseño centrado en conversión': 'ux-que-vende-diseno-centrado-en-conversion',
+      'MVP: Cómo lanzar sin morir en el intento': 'mvp-guia-emprendedores',
+      'Why your website needs to be more than pretty?': 'why-your-website-needs-to-be-more-than-pretty',
+      'Automation: Your best employee that never sleeps': 'automation-your-best-employee-that-never-sleeps',
+      'BuildShip vs Zapier: Which to choose for your business?': 'buildship-vs-zapier-which-to-choose',
+      'Next.js explained for entrepreneurs': 'nextjs-explained-for-entrepreneurs',
+      'UX that sells: Conversion-centered design': 'ux-that-sells-conversion-centered-design',
+      'MVP: How to launch without dying trying': 'mvp-guide-for-entrepreneurs'
+    };
+    return slugMap[title] || title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  };
+
+  const slug = getSlugFromTitle(post.title);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -70,10 +90,11 @@ function BlogCard({ post, index, locale, readingTimeLabel }: BlogCardProps) {
       whileHover={{ y: -5 }}
       className="h-full"
     >
-      <GlowCard
-        customSize={true}
-        className={`group relative h-full flex flex-col cursor-pointer transition-all duration-300 ${post.featured ? 'ring-2 ring-white/30' : ''}`}
-      >
+      <Link href={`/${locale}/blog/${slug}`} className="block h-full">
+        <GlowCard
+          customSize={true}
+          className={`group relative h-full flex flex-col cursor-pointer transition-all duration-300 ${post.featured ? 'ring-2 ring-white/30' : ''}`}
+        >
         <div className="relative z-10 flex flex-col flex-grow p-2">
           {/* Header with category and reading time */}
           <div className="flex items-center justify-between mb-4">
@@ -123,8 +144,12 @@ function BlogCard({ post, index, locale, readingTimeLabel }: BlogCardProps) {
 
           {/* Footer with date and read more */}
           <div className="flex items-center justify-between mt-auto pt-4 border-t border-foreground/10">
-            <span className="text-xs text-muted-foreground">
-              {formatDate(new Date(post.publishedAt), locale as 'es' | 'en')}
+            <span className="text-xs text-muted-foreground" suppressHydrationWarning>
+              {new Date(post.publishedAt).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
             </span>
 
             <div className="flex items-center text-primary text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
@@ -134,6 +159,7 @@ function BlogCard({ post, index, locale, readingTimeLabel }: BlogCardProps) {
           </div>
         </div>
       </GlowCard>
+      </Link>
     </motion.div>
   );
 }
@@ -199,7 +225,7 @@ export default function BlogSection() {
         description: 'Descubre por qué una web exitosa va más allá del diseño visual y cómo la estrategia tecnológica puede transformar tu negocio.',
         category: 'strategy',
         readingTime: 5,
-        publishedAt: '2024-01-15',
+        publishedAt: '2025-07-15',
         featured: true,
         tags: ['estrategia', 'web', 'negocio']
       },
@@ -209,7 +235,7 @@ export default function BlogSection() {
         description: 'Cómo la automatización puede liberar tu tiempo para enfocarte en lo que realmente importa en tu emprendimiento.',
         category: 'automation',
         readingTime: 7,
-        publishedAt: '2024-01-10',
+        publishedAt: '2025-07-10',
         featured: true,
         tags: ['automatización', 'productividad', 'emprendimiento']
       },
@@ -219,7 +245,7 @@ export default function BlogSection() {
         description: 'Comparación práctica entre las principales herramientas de automatización y cuál se adapta mejor a tu proyecto.',
         category: 'automation',
         readingTime: 6,
-        publishedAt: '2024-01-05',
+        publishedAt: '2025-07-05',
         featured: false,
         tags: ['buildship', 'zapier', 'herramientas']
       },
@@ -229,7 +255,7 @@ export default function BlogSection() {
         description: 'Qué es Next.js y por qué podría ser la mejor decisión tecnológica para tu startup, explicado sin tecnicismos.',
         category: 'development',
         readingTime: 8,
-        publishedAt: '2024-01-01',
+        publishedAt: '2024-12-20',
         featured: true,
         tags: ['nextjs', 'desarrollo', 'startup']
       },
@@ -239,7 +265,7 @@ export default function BlogSection() {
         description: 'Los principios de diseño UX que realmente importan para convertir visitantes en clientes pagadores.',
         category: 'design',
         readingTime: 6,
-        publishedAt: '2023-12-28',
+        publishedAt: '2024-12-15',
         featured: false,
         tags: ['ux', 'conversión', 'diseño']
       },
@@ -249,7 +275,7 @@ export default function BlogSection() {
         description: 'La estrategia para crear tu Producto Mínimo Viable sin gastar una fortuna ni perder años de desarrollo.',
         category: 'business',
         readingTime: 9,
-        publishedAt: '2023-12-25',
+        publishedAt: '2024-12-10',
         featured: false,
         tags: ['mvp', 'startup', 'estrategia']
       }
@@ -260,7 +286,7 @@ export default function BlogSection() {
         description: 'Discover why a successful website goes beyond visual design and how technology strategy can transform your business.',
         category: 'strategy',
         readingTime: 5,
-        publishedAt: '2024-01-15',
+        publishedAt: '2025-07-15',
         featured: true,
         tags: ['strategy', 'web', 'business']
       },
@@ -270,7 +296,7 @@ export default function BlogSection() {
         description: 'How automation can free up your time to focus on what really matters in your entrepreneurship.',
         category: 'automation',
         readingTime: 7,
-        publishedAt: '2024-01-10',
+        publishedAt: '2025-07-10',
         featured: true,
         tags: ['automation', 'productivity', 'entrepreneurship']
       },
@@ -280,7 +306,7 @@ export default function BlogSection() {
         description: 'Practical comparison between the main automation tools and which one best fits your project.',
         category: 'automation',
         readingTime: 6,
-        publishedAt: '2024-01-05',
+        publishedAt: '2025-07-05',
         featured: false,
         tags: ['buildship', 'zapier', 'tools']
       },
@@ -290,7 +316,7 @@ export default function BlogSection() {
         description: 'What Next.js is and why it could be the best technological decision for your startup, explained without technicalities.',
         category: 'development',
         readingTime: 8,
-        publishedAt: '2024-01-01',
+        publishedAt: '2024-12-20',
         featured: true,
         tags: ['nextjs', 'development', 'startup']
       },
@@ -300,7 +326,7 @@ export default function BlogSection() {
         description: 'The UX design principles that really matter to convert visitors into paying customers.',
         category: 'design',
         readingTime: 6,
-        publishedAt: '2023-12-28',
+        publishedAt: '2024-12-15',
         featured: false,
         tags: ['ux', 'conversion', 'design']
       },
@@ -310,7 +336,7 @@ export default function BlogSection() {
         description: 'The strategy to create your Minimum Viable Product without spending a fortune or losing years of development.',
         category: 'business',
         readingTime: 9,
-        publishedAt: '2023-12-25',
+        publishedAt: '2024-12-10',
         featured: false,
         tags: ['mvp', 'startup', 'strategy']
       }
@@ -331,7 +357,7 @@ export default function BlogSection() {
       id="blog"
       className="py-24 scroll-mt-20"
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-4">
         {/* Header */}
         <motion.div
           className="text-center mb-16"

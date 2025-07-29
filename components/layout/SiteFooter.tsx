@@ -19,22 +19,22 @@ export default function SiteFooter() {
     ];
 
     return (
-        <footer className="bg-black">
+        <footer className="bg-black mt-16 border-t border-white/10 lg:mt-24">
             {/* Container con máximo 1200px y padding lateral */}
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-4">
 
                 {/* Top Footer - Layout exacto de Figma */}
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 py-12">
+                <div className="flex flex-col gap-8 py-12 min-h-[200px] lg:flex-row lg:justify-between lg:items-start lg:py-16 lg:min-h-[150px]">
 
                     {/* Left Side - Brand */}
-                    <div className="flex flex-col gap-8 lg:max-w-sm">
+                    <div className="flex flex-col gap-6 max-w-xs lg:gap-8 lg:max-w-sm lg:flex-shrink-0">
                         {/* Logo HeyMou como texto */}
                         <Link href={`/${locale}`} className="inline-block hover:opacity-80 transition-opacity">
-                            <h2 className="text-white text-2xl font-semibold">HeyMou</h2>
+                            <h2 className="text-white text-2xl font-semibold lg:text-3xl">HeyMou</h2>
                         </Link>
 
                         {/* Description Text - Exacto como Figma */}
-                        <div className="text-white text-sm leading-relaxed max-w-xs">
+                        <div className="text-white text-sm leading-relaxed lg:text-base">
                             <p>Transformando sueños en realidad digital.</p>
                             <p>Tu aliado tecnológico para materializar</p>
                             <p>ideas ambiciosas.</p>
@@ -42,10 +42,10 @@ export default function SiteFooter() {
                     </div>
 
                     {/* Right Side - Social & Navigation */}
-                    <div className="flex flex-col items-start lg:items-end gap-8">
+                    <div className="flex flex-col items-start gap-6 lg:flex-shrink-0 lg:gap-8 lg:items-end">
 
                         {/* Social Icons - Exacto como Figma */}
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-4 lg:gap-6">
                             {socialPlatforms.map((platform) => (
                                 <a
                                     key={platform.name}
@@ -59,7 +59,7 @@ export default function SiteFooter() {
                                     <img
                                         src={platform.iconPath}
                                         alt={`${platform.name} icon`}
-                                        className="w-4 h-4"
+                                        className="w-4 h-4 lg:w-5 lg:h-5"
                                         style={{
                                             filter: 'brightness(0) saturate(100%) invert(100%)'
                                         }}
@@ -69,38 +69,38 @@ export default function SiteFooter() {
                         </div>
 
                         {/* Footer Menu - Horizontal como Figma */}
-                        <div className="flex flex-wrap items-center gap-6 lg:gap-8">
+                        <nav className="flex flex-wrap items-center gap-4 lg:gap-8">
                             <Link
                                 href={`/${locale}`}
-                                className="text-white text-base hover:text-primary transition-colors"
+                                className="text-white text-sm hover:text-primary transition-colors lg:text-base"
                             >
                                 {locale === 'es' ? 'Inicio' : 'Home'}
                             </Link>
-                            <Link
-                                href={`/${locale}/servicios`}
-                                className="text-white text-base hover:text-primary transition-colors"
+                            <a
+                                href={`/${locale}#servicios`}
+                                className="text-white text-sm hover:text-primary transition-colors lg:text-base"
                             >
                                 {locale === 'es' ? 'Servicios' : 'Services'}
-                            </Link>
-                            <Link
-                                href={`/${locale}/casos-exito`}
-                                className="text-white text-base hover:text-primary transition-colors"
+                            </a>
+                            <a
+                                href={`/${locale}#casos-exito`}
+                                className="text-white text-sm hover:text-primary transition-colors lg:text-base"
                             >
                                 {locale === 'es' ? 'Casos de Éxito' : 'Success Stories'}
-                            </Link>
-                            <Link
-                                href={`/${locale}/blog`}
-                                className="text-white text-base hover:text-primary transition-colors"
+                            </a>
+                            <a
+                                href={`/${locale}#blog`}
+                                className="text-white text-sm hover:text-primary transition-colors lg:text-base"
                             >
                                 Blog
-                            </Link>
-                            <Link
-                                href={`/${locale}/contacto`}
-                                className="text-white text-base hover:text-primary transition-colors"
+                            </a>
+                            <a
+                                href={`/${locale}#contacto`}
+                                className="text-white text-sm hover:text-primary transition-colors lg:text-base"
                             >
                                 {locale === 'es' ? 'Contacto' : 'Contact'}
-                            </Link>
-                        </div>
+                            </a>
+                        </nav>
                     </div>
                 </div>
 
@@ -108,10 +108,10 @@ export default function SiteFooter() {
                 <div className="border-t border-white/20"></div>
 
                 {/* Bottom Section - Exacto como Figma */}
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 py-6">
+                <div className="flex flex-col gap-4 py-6 lg:flex-row lg:justify-between lg:items-center lg:py-8">
 
                     {/* Left - Legal Links */}
-                    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
+                    <div className="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6">
                         <Link
                             href={`/${locale}/privacidad`}
                             className="text-white text-sm hover:text-primary transition-colors"

@@ -3,7 +3,7 @@ title: "¿Por qué tu web necesita ser más que bonita?"
 description: "Descubre por qué una web exitosa va más allá del diseño visual y cómo la estrategia tecnológica puede transformar tu negocio."
 category: "strategy"
 readingTime: 5
-publishedAt: "2024-01-15"
+publishedAt: "2025-07-15"
 featured: true
 tags: ["estrategia", "web", "negocio"]
 author: "Moisés (Mou)"
@@ -101,4 +101,4 @@ Una web exitosa es como un empleado estrella que trabaja 24/7:
 
 ---
 
-**¿Te resonó este artículo?** Compártelo con otros emprendedores que necesiten escuchar esta verdad. Y si quieres que analicemos tu web actual, [hablemos de tu proyecto](mailto:hola@heymou.dev).
+**¿Te resonó este artículo?** Compártelo con otros emprendedores que necesiten escuchar esta verdad. Y si quieres que analicemos tu web actual, [hablemos de tu proyecto](mailto:hola@heymou.com).

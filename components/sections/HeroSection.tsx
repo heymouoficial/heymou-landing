@@ -69,7 +69,7 @@ export default function HeroSection() {
       {/* Gradient overlay to fade the flickering grid on the right side */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent from-0% via-black/20 via-0% to-black pointer-events-none z-[1]" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-4 relative z-10">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center"
           {...animationConfig}

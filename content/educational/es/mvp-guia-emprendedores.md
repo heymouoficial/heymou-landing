@@ -290,4 +290,4 @@ Imagínate que quieres abrir un restaurante. En lugar de construir un local de 5
 
 ---
 
-**¿Listo para construir tu MVP sin morir en el intento?** [Hablemos de tu idea](mailto:hola@heymou.dev) y diseñemos juntos la estrategia perfecta para validar tu negocio.
+**¿Listo para construir tu MVP sin morir en el intento?** [Hablemos de tu idea](mailto:hola@heymou.com) y diseñemos juntos la estrategia perfecta para validar tu negocio.

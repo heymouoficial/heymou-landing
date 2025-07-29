@@ -14,15 +14,9 @@ import {
 } from 'lucide-react';
 
 import { useTranslation } from '../../src/hooks/useTranslation';
+import { useChatbot } from '../../src/hooks/useChatbot';
 
 import { Button } from './Button';
-
-interface Message {
-  id: string;
-  content: string;
-  sender: 'user' | 'bot';
-  timestamp: Date;
-}
 
 interface ChatbotProps {
   className?: string;
@@ -32,10 +26,9 @@ export default function Chatbot({ className = '' }: ChatbotProps) {
   const { locale } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [sessionId] = useState(`session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`);
+
+  const { messages, isLoading, sendMessage, addWelcomeMessage } = useChatbot({ locale });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -52,89 +45,38 @@ export default function Chatbot({ className = '' }: ChatbotProps) {
     }
   }, [isOpen, isMinimized]);
 
+  // Quick action buttons
+  const quickActions = locale === 'es' ? [
+    '¿Qué servicios ofreces?',
+    '¿Cuánto cuesta un proyecto?',
+    'Quiero agendar una consulta',
+    'Cuéntame sobre casos de éxito'
+  ] : [
+    'What services do you offer?',
+    'How much does a project cost?',
+    'I want to schedule a consultation',
+    'Tell me about success cases'
+  ];
+
   // Initial welcome message
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const welcomeMessage: Message = {
-        id: 'welcome',
-        content: locale === 'es'
-          ? '¡Hola! Soy el asistente de HeyMou. ¿En qué puedo ayudarte hoy? Puedes preguntarme sobre servicios, proyectos o cualquier duda tecnológica.'
-          : 'Hello! I\'m HeyMou\'s assistant. How can I help you today? You can ask me about services, projects or any tech questions.',
-        sender: 'bot',
-        timestamp: new Date(),
-      };
-      setMessages([welcomeMessage]);
+      addWelcomeMessage();
     }
-  }, [isOpen, messages.length, locale]);
+  }, [isOpen, messages.length, addWelcomeMessage]);
 
-  const sendMessage = async () => {
+  const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
-
-    const userMessage: Message = {
-      id: `user_${Date.now()}`,
-      content: inputMessage.trim(),
-      sender: 'user',
-      timestamp: new Date(),
-    };
-
-    setMessages(prev => [...prev, userMessage]);
+    
+    const message = inputMessage.trim();
     setInputMessage('');
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('/api/buildship/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage.content,
-          sessionId,
-          locale,
-          context: {
-            page: window.location.pathname,
-            referrer: document.referrer,
-          },
-        }),
-      });
-
-      const result = await response.json();
-
-      if (result.success && result.data) {
-        const botMessage: Message = {
-          id: `bot_${Date.now()}`,
-          content: result.data.response,
-          sender: 'bot',
-          timestamp: new Date(),
-        };
-        setMessages(prev => [...prev, botMessage]);
-      } else {
-        throw new Error(result.error || 'Failed to get response');
-      }
-    } catch (error) {
-      // Log error for debugging in development
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.error('Chatbot error:', error);
-      }
-      const errorMessage: Message = {
-        id: `error_${Date.now()}`,
-        content: locale === 'es'
-          ? 'Lo siento, hubo un error al procesar tu mensaje. Por favor, inténtalo de nuevo.'
-          : 'Sorry, there was an error processing your message. Please try again.',
-        sender: 'bot',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
-    }
+    await sendMessage(message);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      sendMessage();
+      handleSendMessage();
     }
   };
 
@@ -257,6 +199,29 @@ export default function Chatbot({ className = '' }: ChatbotProps) {
                     <div ref={messagesEndRef} />
                   </div>
 
+                  {/* Quick Actions */}
+                  {messages.length <= 1 && (
+                    <div className="px-4 pb-2">
+                      <p className="text-xs text-muted-foreground mb-2">
+                        {locale === 'es' ? 'Preguntas frecuentes:' : 'Quick questions:'}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {quickActions.map((action, index) => (
+                          <button
+                            key={index}
+                            onClick={() => {
+                              setInputMessage(action);
+                              setTimeout(() => handleSendMessage(), 100);
+                            }}
+                            className="text-xs bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1 rounded-md transition-colors"
+                          >
+                            {action}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Input */}
                   <div className="p-4 border-t border-border bg-background">
                     <div className="flex items-center space-x-2">
@@ -274,7 +239,7 @@ export default function Chatbot({ className = '' }: ChatbotProps) {
                         className="flex-1 px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 bg-background text-foreground placeholder:text-muted-foreground"
                       />
                       <Button
-                        onClick={sendMessage}
+                        onClick={handleSendMessage}
                         disabled={!inputMessage.trim() || isLoading}
                         size="icon"
                         className="bg-primary hover:bg-primary-dark"
