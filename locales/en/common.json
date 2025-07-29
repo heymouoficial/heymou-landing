@@ -17,16 +17,21 @@
   "language": "Language",
   "spanish": "Spanish",
   "english": "English",
+  "seo": {
+    "title": "HeyMou | Your Technology Ally - Strategy, Design & Development",
+    "description": "HeyMou - I transform ambitious ideas into tangible results through technology. Your technology ally for strategy, design and development that connects with your audience.",
+    "keywords": "HeyMou, Moises, Mou, technology ally, web development, automation, digital strategy, Next.js, BuildShip, UX/UI design, entrepreneurs"
+  },
   "hero": {
     "title": "Your ideas deserve a",
     "titleHighlight": "technology ally",
-    "subtitle": "I transform ambitious ideas into tangible results through technology. Strategy, design and development that connects with your audience.",
+    "subtitle": "Hi, I'm Moisés. (You can call me Mou) For over 15 years I have focused on transforming ambitious ideas into tangible results through technology, strategy, design and development that connects with your audience.",
     "ctaPrimary": "Let's Work Together",
     "ctaSecondary": "See My Work",
     "stats": {
-      "projects": "+50 Projects",
-      "experience": "+10 Years",
-      "countries": "3 Countries"
+      "projects": "+70 Projects",
+      "experience": "+15 Years",
+      "countries": "5 Countries"
     }
   },
   "servicesSection": {
@@ -66,5 +71,334 @@
       "question": "Ready to transform your dream into digital reality?",
       "button": "Let's talk about your project"
     }
+  },
+  "successStoriesSection": {
+    "badge": "From Idea to Reality",
+    "title": "Stories that Inspire",
+    "subtitle": "Every project is a transformation story. Discover how other entrepreneurs have materialized their technological ideas alongside their ideal technology ally.",
+    "stories": [
+      {
+        "title": "Camino el Portal del Alma",
+        "clientName": "Roxana Della Croce",
+        "industry": "Spiritual Wellness",
+        "location": "Uruguay",
+        "status": "live",
+        "challenge": "Needed to improve the user experience of her spiritual portal and optimize usability to better connect with her audience.",
+        "solution": "We implemented significant WordPress improvements focused on UX/UI and continuous technical support to optimize user experience.",
+        "results": [
+          "85% improvement in dwell time",
+          "60% reduction in bounce rate",
+          "40% increase in conversions"
+        ],
+        "testimonial": {
+          "quote": "The transformation of my portal was incredible. Now my users navigate intuitively and connect deeply with the spiritual content.",
+          "author": "Roxana Della Croce",
+          "position": "Founder, Camino el Portal del Alma"
+        },
+        "duration": "3 months",
+        "technologies": ["WordPress", "UX/UI Design", "Technical Support"]
+      },
+      {
+        "title": "Nopa - Intelligent Automation",
+        "clientName": "Roxana Della Croce & Nicolas Mallo",
+        "industry": "Automation",
+        "location": "Uruguay",
+        "status": "live",
+        "challenge": "Required intelligent automation for catalog management with ETL format, processing large volumes of data efficiently.",
+        "solution": "We developed a custom solution with BuildShip and bespoke plugin that completely automates the catalog ETL process.",
+        "results": [
+          "95% reduction in processing time",
+          "Complete ETL workflow automation",
+          "Scalability for thousands of products"
+        ],
+        "testimonial": {
+          "quote": "The automation they created completely transformed our workflow. What used to take days now happens in minutes.",
+          "author": "Nicolas Mallo",
+          "position": "Co-founder, Nopa"
+        },
+        "duration": "4 months",
+        "technologies": ["BuildShip", "Custom Plugin", "ETL Automation"]
+      },
+      {
+        "title": "Mini Universo - Total Rebranding",
+        "clientName": "Marcos Utrera",
+        "industry": "Franchises",
+        "location": "Venezuela/Colombia",
+        "status": "development",
+        "challenge": "Needed complete brand rebranding and platform preparation for upcoming franchise automation launch.",
+        "solution": "We executed comprehensive WordPress rebranding and developed HITLS automation system for franchise management with BuildShip.",
+        "results": [
+          "Completely renewed brand identity",
+          "Scalable franchise platform",
+          "HITLS system in development"
+        ],
+        "testimonial": {
+          "quote": "The rebranding exceeded all my expectations. The new identity perfectly reflects the expansion vision we have for Mini Universo.",
+          "author": "Marcos Utrera",
+          "position": "CEO, Mini Universo"
+        },
+        "duration": "5 months",
+        "technologies": ["WordPress", "Rebranding", "BuildShip", "HITLS"]
+      },
+      {
+        "title": "Tatua - Italian-Venezuelan Emotional Connection",
+        "clientName": "Mauro Cavallo",
+        "industry": "Fashion",
+        "location": "Venezuela",
+        "status": "upcoming",
+        "challenge": "Create a clothing brand with strong emotional connection and complete automation for catalog management and social media.",
+        "solution": "WordPress + WooCommerce platform development with BuildShip automation for Print on Demand and collection management.",
+        "results": [
+          "Complete e-commerce platform",
+          "Catalog and social media automation",
+          "Integrated Print on Demand system"
+        ],
+        "testimonial": {
+          "quote": "I'm excited about the launch. The platform perfectly captures the Italian-Venezuelan essence I wanted to convey.",
+          "author": "Mauro Cavallo",
+          "position": "Founder, Tatua"
+        },
+        "duration": "6 months",
+        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
+      },
+      {
+        "title": "Armeni - Armenian-Uruguayan Heritage",
+        "clientName": "Rafael Boghtchumian",
+        "industry": "Fashion",
+        "location": "Uruguay",
+        "status": "upcoming",
+        "challenge": "Develop clothing brand with Armenian-Uruguayan DNA following similar strategy to Tatua but with unique cultural identity.",
+        "solution": "Twin platform implementation with Armenian cultural customization and complete commercial process automation.",
+        "results": [
+          "Integrated Armenian cultural identity",
+          "Personalized e-commerce platform",
+          "Complete management automation"
+        ],
+        "testimonial": {
+          "quote": "The proposal respects and celebrates our Armenian roots in a way I never imagined possible on a digital platform.",
+          "author": "Rafael Boghtchumian",
+          "position": "Founder, Armeni"
+        },
+        "duration": "6 months",
+        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
+      },
+      {
+        "title": "Quantum Biohacking - Toroidal Codex",
+        "clientName": "Runa Quantum",
+        "industry": "Quantum Technology",
+        "location": "International",
+        "status": "development",
+        "challenge": "Create a toroidal codex based on book and quantum deck, integrating quantum physics, neurosciences, ancestral wisdom and co-creative AI.",
+        "solution": "Development of innovative platform combining ancestral knowledge with quantum technology and applied neurosciences.",
+        "results": [
+          "Functional toroidal codex",
+          "Co-creative AI integration",
+          "Science-ancestral wisdom fusion"
+        ],
+        "testimonial": {
+          "quote": "We're creating something revolutionary that unites millennial wisdom with the most advanced quantum technology.",
+          "author": "Runa Quantum",
+          "position": "Visionary, Quantum Biohacking"
+        },
+        "duration": "8 months",
+        "technologies": ["Quantum Physics", "Neurosciences", "Co-creative AI", "Ancestral Wisdom"]
+      },
+      {
+        "title": "Tatua - Italian-Venezuelan Emotional Connection",
+        "clientName": "Mauro Cavallo",
+        "industry": "Fashion",
+        "location": "Venezuela",
+        "status": "upcoming",
+        "challenge": "Create a clothing brand with strong emotional connection and complete automation for catalog management and social media.",
+        "solution": "WordPress + WooCommerce platform development with BuildShip automation for Print on Demand and collection management.",
+        "results": [
+          "Complete e-commerce platform",
+          "Catalog and social media automation",
+          "Integrated Print on Demand system"
+        ],
+        "testimonial": {
+          "quote": "I'm excited about the launch. The platform perfectly captures the Italian-Venezuelan essence I wanted to convey.",
+          "author": "Mauro Cavallo",
+          "position": "Founder, Tatua"
+        },
+        "duration": "6 months",
+        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
+      },
+      {
+        "title": "Armeni - Armenian-Uruguayan Heritage",
+        "clientName": "Rafael Boghtchumian",
+        "industry": "Fashion",
+        "location": "Uruguay",
+        "status": "upcoming",
+        "challenge": "Develop clothing brand with Armenian-Uruguayan DNA following similar strategy to Tatua but with unique cultural identity.",
+        "solution": "Twin platform implementation with Armenian cultural customization and complete commercial process automation.",
+        "results": [
+          "Integrated Armenian cultural identity",
+          "Personalized e-commerce platform",
+          "Complete management automation"
+        ],
+        "testimonial": {
+          "quote": "The proposal respects and celebrates our Armenian roots in a way I never imagined possible on a digital platform.",
+          "author": "Rafael Boghtchumian",
+          "position": "Founder, Armeni"
+        },
+        "duration": "6 months",
+        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
+      }
+    ],
+    "cta": {
+      "question": "Ready to write your own success story?",
+      "button": "Let's start your transformation"
+    }
+  },
+  "blogSection": {
+    "badge": "Express Tech Tips",
+    "title": "Demystifying Technology",
+    "subtitle": "Practical and accessible knowledge for entrepreneurs who want to understand technology without getting lost in technicalities. Your technology ally explains the complex in simple terms.",
+    "categories": {
+      "all": "All",
+      "strategy": "Strategy",
+      "development": "Development",
+      "automation": "Automation",
+      "design": "Design",
+      "business": "Business"
+    },
+    "readingTime": "min read",
+    "posts": [
+      {
+        "id": "1",
+        "title": "Why your website needs to be more than pretty?",
+        "description": "Discover why a successful website goes beyond visual design and how technology strategy can transform your business.",
+        "category": "strategy",
+        "readingTime": 5,
+        "publishedAt": "2024-01-15",
+        "featured": true,
+        "tags": ["strategy", "web", "business"]
+      },
+      {
+        "id": "2",
+        "title": "Automation: Your best employee that never sleeps",
+        "description": "How automation can free up your time to focus on what really matters in your entrepreneurship.",
+        "category": "automation",
+        "readingTime": 7,
+        "publishedAt": "2024-01-10",
+        "featured": true,
+        "tags": ["automation", "productivity", "entrepreneurship"]
+      },
+      {
+        "id": "3",
+        "title": "BuildShip vs Zapier: Which to choose for your business?",
+        "description": "Practical comparison between the main automation tools and which one best fits your project.",
+        "category": "automation",
+        "readingTime": 6,
+        "publishedAt": "2024-01-05",
+        "featured": false,
+        "tags": ["buildship", "zapier", "tools"]
+      },
+      {
+        "id": "4",
+        "title": "Next.js explained for entrepreneurs",
+        "description": "What Next.js is and why it could be the best technological decision for your startup, explained without technicalities.",
+        "category": "development",
+        "readingTime": 8,
+        "publishedAt": "2024-01-01",
+        "featured": true,
+        "tags": ["nextjs", "development", "startup"]
+      },
+      {
+        "id": "5",
+        "title": "UX that sells: Conversion-centered design",
+        "description": "The UX design principles that really matter to convert visitors into paying customers.",
+        "category": "design",
+        "readingTime": 6,
+        "publishedAt": "2023-12-28",
+        "featured": false,
+        "tags": ["ux", "conversion", "design"]
+      },
+      {
+        "id": "6",
+        "title": "MVP: How to launch without dying trying",
+        "description": "The strategy to create your Minimum Viable Product without spending a fortune or losing years of development.",
+        "category": "business",
+        "readingTime": 9,
+        "publishedAt": "2023-12-25",
+        "featured": false,
+        "tags": ["mvp", "startup", "strategy"]
+      }
+    ],
+    "cta": {
+      "question": "Want more personalized tech advice?",
+      "button": "Let's talk about your project"
+    }
+  },
+  "contactForm": {
+    "title": "Let's talk about your project!",
+    "subtitle": "Tell me about your idea and let's discover together how to turn it into digital reality.",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "company": {
+        "label": "Company (optional)",
+        "placeholder": "Your company name"
+      },
+      "projectType": {
+        "label": "Project Type",
+        "placeholder": "Select an option...",
+        "options": {
+          "web": "Web Development",
+          "mobile": "Mobile Application",
+          "automation": "Automation",
+          "consulting": "Strategic Consulting"
+        }
+      },
+      "budget": {
+        "label": "Estimated Budget",
+        "placeholder": "Select a range...",
+        "options": {
+          "1000-3000": "$1,000 - $3,000",
+          "3000-7000": "$3,000 - $7,000",
+          "7000-15000": "$7,000 - $15,000",
+          "15000+": "+$15,000",
+          "discuss": "I prefer to discuss it"
+        }
+      },
+      "timeline": {
+        "label": "Estimated Timeline",
+        "placeholder": "When do you need the project?",
+        "options": {
+          "asap": "As soon as possible",
+          "1-3months": "1-3 months",
+          "3-6months": "3-6 months",
+          "6months+": "More than 6 months",
+          "flexible": "I'm flexible"
+        }
+      },
+      "message": {
+        "label": "Tell me about your project",
+        "placeholder": "Describe your idea, goals, current challenges and how you think I can help you as your technology ally..."
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "minLength": "Minimum {min} characters"
+    },
+    "states": {
+      "idle": "Send Message",
+      "loading": "Sending...",
+      "success": {
+        "title": "Message sent!",
+        "description": "Thank you for contacting me. I'll respond within the next 24 hours.",
+        "button": "Send another message"
+      },
+      "error": "There was an error sending the message. Please try again."
+    },
+    "privacy": "By submitting this form, you accept our Privacy Policy and that I contact you to respond to your inquiry."
   }
 }

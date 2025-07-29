@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useTranslation } from '../../src/hooks/useTranslation';
 import { Button } from '../ui/Button';
 
-import LanguageSelector from './LanguageSelector';
+import { LanguageSelector } from './LanguageSelector';
 
 export default function Header() {
   const { t, locale } = useTranslation();

@@ -13,18 +13,18 @@ export interface GlassIconsProps {
     className?: string;
 }
 
-// Gradient mapping using darker, more dramatic gradients
-const gradientMapping: Record<string, string> = {
-    blue: "linear-gradient(135deg, #001A4D, #0059FF)", // Much darker blue to primary
-    primary: "linear-gradient(135deg, #000B1A, #00153D)", // Very dark to dark primary
-    light: "linear-gradient(135deg, #003366, #1F6DFF)", // Dark blue to primary-light
+// Color mapping using flat colors
+const colorMapping: Record<string, string> = {
+    blue: "#0059FF", // Sky blue primary
+    primary: "#0059FF", // Sky blue primary
+    light: "#0059FF", // Sky blue primary
 };
 
 // Component definition
 export const Component = ({ items, className }: GlassIconsProps): React.JSX.Element => {
     const getBackgroundStyle = (color: string): React.CSSProperties => {
-        if (gradientMapping[color]) {
-            return { background: gradientMapping[color] };
+        if (colorMapping[color]) {
+            return { background: colorMapping[color] };
         }
         return { background: color };
     };

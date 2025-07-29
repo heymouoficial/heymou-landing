@@ -10,7 +10,7 @@ import { Menu, X, ChevronRightIcon } from 'lucide-react'
 import { Button } from "../ui/Button"
 import { useTranslation } from '../../src/hooks/useTranslation'
 
-import LanguageSelector from './LanguageSelector'
+import { LanguageSelector } from './LanguageSelector'
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
@@ -32,11 +32,10 @@ export function SiteHeader() {
   }, [])
 
   const navigation = [
-    { name: t('home'), href: '#inicio' },
-    { name: t('services'), href: '#servicios' },
-    { name: t('portfolio'), href: '#casos-exito' },
-    { name: 'Blog', href: '#blog' },
-    { name: t('about'), href: '#acerca-de' },
+    { name: t('home'), href: '#inicio', type: 'scroll' },
+    { name: t('services'), href: '#servicios', type: 'scroll' },
+    { name: t('portfolio'), href: '#casos-exito', type: 'scroll' },
+    { name: 'Blog', href: '#blog', type: 'scroll' },
   ];
 
   const MobileMenu = () => (
@@ -88,18 +87,29 @@ export function SiteHeader() {
         {/* Navigation Links */}
         <nav className="flex-1 space-y-6 py-8">
           {navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault()
-                setIsMenuOpen(false)
-                scrollToSection(item.href.substring(1))
-              }}
-              className="block text-2xl font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-foreground/5"
-            >
-              {item.name}
-            </a>
+            item.type === 'link' ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-2xl font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-foreground/5"
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setIsMenuOpen(false)
+                  scrollToSection(item.href.substring(1))
+                }}
+                className="block text-2xl font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-foreground/5"
+              >
+                {item.name}
+              </a>
+            )
           ))}
         </nav>
         
@@ -156,27 +166,21 @@ export function SiteHeader() {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('servicios')} 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-3 py-2 rounded-md transition-all duration-200 cursor-pointer"
+              className="text-sm font-medium text-white hover:text-white hover:bg-[#0059FF] px-3 py-2 rounded-md transition-all duration-300 cursor-pointer"
             >
               {t('services')}
             </button>
             <button 
               onClick={() => scrollToSection('casos-exito')} 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-3 py-2 rounded-md transition-all duration-200 cursor-pointer"
+              className="text-sm font-medium text-white hover:text-white hover:bg-[#0059FF] px-3 py-2 rounded-md transition-all duration-300 cursor-pointer"
             >
               {t('portfolio')}
             </button>
             <button 
               onClick={() => scrollToSection('blog')} 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-3 py-2 rounded-md transition-all duration-200 cursor-pointer"
+              className="text-sm font-medium text-white hover:text-white hover:bg-[#0059FF] px-3 py-2 rounded-md transition-all duration-300 cursor-pointer"
             >
               Blog
-            </button>
-            <button 
-              onClick={() => scrollToSection('acerca-de')} 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-foreground/5 px-3 py-2 rounded-md transition-all duration-200 cursor-pointer"
-            >
-              {t('about')}
             </button>
           </nav>
 

@@ -22,24 +22,46 @@ export interface ContentBlock {
 
 export interface BlogPost {
   id: string;
-  slug: string;
-  locale: Locale;
+  slug?: string;
+  locale?: Locale;
   title: string;
   description: string;
-  content: {
+  category: string;
+  readingTime: number;
+  publishedAt: string;
+  featured: boolean;
+  tags: string[];
+  content?: {
     blocks: ContentBlock[];
   };
-  metadata: {
+  metadata?: {
     seoTitle?: string;
     seoDescription?: string;
     featuredImage?: string;
-    tags: string[];
-    category: string;
-    readingTime: number;
   };
-  status: 'draft' | 'published';
-  createdAt: Date;
-  updatedAt: Date;
+  status?: 'draft' | 'published';
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface BlogSectionData {
+  badge: string;
+  title: string;
+  subtitle: string;
+  categories: {
+    all: string;
+    strategy: string;
+    development: string;
+    automation: string;
+    design: string;
+    business: string;
+  };
+  readingTime: string;
+  posts: BlogPost[];
+  cta: {
+    question: string;
+    button: string;
+  };
 }
 
 export interface SuccessStory {
@@ -77,6 +99,7 @@ export interface ContactFormData {
   message: string;
   budget?: string;
   timeline?: string;
+  locale?: Locale;
 }
 
 // Component prop types

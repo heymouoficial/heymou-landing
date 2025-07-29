@@ -1,0 +1,38 @@
+{
+  "badge": "How I Help You",
+  "title": "Your Comprehensive Technology Ally",
+  "subtitle": "From idea to implementation, I accompany you every step of the way. Strategy, design and development that transforms dreams into digital reality.",
+  "items": [
+    {
+      "title": "Strategy & Consulting",
+      "description": "I transform your vision into an executable plan. As your technology ally, I deeply analyze your business to create clear roadmaps and intelligent decisions.",
+      "points": [
+        "Scalable solution architecture",
+        "Personalized technology strategy",
+        "Digital process optimization"
+      ]
+    },
+    {
+      "title": "Design & Experience",
+      "description": "Interfaces that emotionally connect with your audience. User-centered design that converts visitors into loyal and engaged customers.",
+      "points": [
+        "Converting UX/UI design",
+        "Rapid interactive prototyping",
+        "Scalable design systems"
+      ]
+    },
+    {
+      "title": "Development & Automation",
+      "description": "Clean, scalable and efficient code that grows with you. Full-stack development and intelligent integrations that power and automate your business.",
+      "points": [
+        "Robust web and mobile applications",
+        "Complex API integrations",
+        "Workflow automation"
+      ]
+    }
+  ],
+  "cta": {
+    "question": "Ready to transform your dream into digital reality?",
+    "button": "Let's talk about your project"
+  }
+}

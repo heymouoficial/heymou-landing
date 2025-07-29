@@ -23,13 +23,13 @@ section {
   --popover-foreground: #fafafa;
 
   /* Sky blue primary - #0059FF */
-  --primary: #00153D;
+  --primary: #0059FF;
   /* Sky blue */
   --primary-foreground: #ffffff;
   --primary-hover: #0047CC;
-  /* Lighter sky blue */
+  /* Darker sky blue for hover */
   --primary-light: #1F6DFF;
-  /* Even lighter sky blue */
+  /* Lighter sky blue */
 
   /* Neutrals consistent with neutral-900 theme */
   --secondary: #262626;
@@ -103,49 +103,34 @@ body {
   border-color: var(--border-hover);
 }
 
-/* Shiny Button Effect */
+/* Primary Button Effect */
 .btn-shiny {
-  position: relative;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  background: var(--primary);
   transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.btn-shiny::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.6),
-      transparent);
-  transition: left 0.5s ease;
-  z-index: 1;
-}
-
-.btn-shiny:hover::before {
-  left: 100%;
 }
 
 .btn-shiny:hover {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-light) 100%);
+  background: var(--primary-hover);
   box-shadow: 0 8px 32px rgba(0, 89, 255, 0.4), 0 4px 16px rgba(0, 89, 255, 0.2);
-}
-
-.btn-shiny>* {
-  position: relative;
-  z-index: 2;
 }
 
 /* Flickering Grid Effect */
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     opacity: 0.2;
   }
-  20%, 24%, 55% {
+
+  20%,
+  24%,
+  55% {
     opacity: 0.8;
   }
 }
@@ -154,9 +139,11 @@ body {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.6;
   }
+
   100% {
     opacity: 0;
   }
@@ -172,7 +159,7 @@ body {
 .grid-container {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 89, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 89, 255, 0.06) 1px, transparent 1px);
   background-size: 20px 20px;
@@ -194,14 +181,14 @@ body {
   box-shadow: 0 0 8px rgba(0, 89, 255, 0.25);
 }
 
-/* Legacy button gradient for compatibility */
+/* Legacy button for compatibility */
 .btn-primary-gradient {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  background: var(--primary);
   transition: all 0.3s ease;
 }
 
 .btn-primary-gradient:hover {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-light) 100%);
+  background: var(--primary-hover);
   box-shadow: var(--shadow-blue);
 }
 
@@ -435,4 +422,130 @@ body {
 
 .ring-ring {
   --tw-ring-color: var(--ring);
+}
+
+/* Typography System - Cabinet Grotesk */
+.typography-h1 {
+  font-family: var(--font-sans);
+  font-size: 3rem; /* 48px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .typography-h1 {
+    font-size: 4rem; /* 64px */
+  }
+}
+
+.typography-h2 {
+  font-family: var(--font-sans);
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .typography-h2 {
+    font-size: 3rem; /* 48px */
+  }
+}
+
+.typography-h3 {
+  font-family: var(--font-sans);
+  font-size: 1.875rem; /* 30px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .typography-h3 {
+    font-size: 2.25rem; /* 36px */
+  }
+}
+
+.typography-h4 {
+  font-family: var(--font-sans);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.typography-h5 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.typography-h6 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.typography-body-large {
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .typography-body-large {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+.typography-body {
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.typography-body-small {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.typography-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.typography-badge {
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }

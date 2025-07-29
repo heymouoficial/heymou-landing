@@ -16,8 +16,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: {
+      // Load all translation namespaces
       ...(await import(`../locales/${locale}/common.json`)).default,
       ...(await import(`../locales/${locale}/navigation.json`)).default,
+      ...(await import(`../locales/${locale}/homepage.json`)).default,
+      ...(await import(`../locales/${locale}/services.json`)).default,
+      // Additional namespaces can be added as needed
+      // ...(await import(`../locales/${locale}/blog.json`)).default,
+      // ...(await import(`../locales/${locale}/contact.json`)).default,
     },
   };
 });

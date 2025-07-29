@@ -10,3 +10,20 @@ export type { ModalProps } from './Modal';
 
 export { Loading, LoadingSpinner, LoadingDots, LoadingPulse, LoadingSkeleton, PageLoading } from './Loading';
 export type { LoadingProps } from './Loading';
+
+export { Input } from './Input';
+
+export { 
+  Select, 
+  SelectContent, 
+  SelectGroup, 
+  SelectItem, 
+  SelectLabel, 
+  SelectScrollDownButton, 
+  SelectScrollUpButton, 
+  SelectSeparator, 
+  SelectTrigger, 
+  SelectValue 
+} from './Select';
+
+export { Textarea } from './Textarea';

@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "timeout": 20000,
+    "wait": 500,
+    "chromeLaunchConfig": {
+      "ignoreHTTPSErrors": false
+    },
+    "standard": "WCAG2AA",
+    "ignore": [
+      "color-contrast"
+    ]
+  },
+  "urls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/es",
+    "http://localhost:3000/en",
+    "http://localhost:3000/es/contacto",
+    "http://localhost:3000/en/contact",
+    "http://localhost:3000/es/sobre-mi",
+    "http://localhost:3000/en/about"
+  ]
+}

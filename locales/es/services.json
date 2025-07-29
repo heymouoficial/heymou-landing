@@ -1,0 +1,38 @@
+{
+  "badge": "Cómo Te Ayudo",
+  "title": "Tu Aliado Tecnológico Integral",
+  "subtitle": "Desde la idea hasta la implementación, te acompaño en cada paso del camino. Estrategia, diseño y desarrollo que transforma sueños en realidad digital.",
+  "items": [
+    {
+      "title": "Estrategia & Consultoría",
+      "description": "Transformo tu visión en un plan ejecutable. Como tu aliado tecnológico, analizo profundamente tu negocio para crear roadmaps claros y decisiones inteligentes.",
+      "points": [
+        "Arquitectura de soluciones escalables",
+        "Estrategia tecnológica personalizada",
+        "Optimización de procesos digitales"
+      ]
+    },
+    {
+      "title": "Diseño & Experiencia",
+      "description": "Interfaces que conectan emocionalmente con tu audiencia. Diseño centrado en el usuario que convierte visitantes en clientes fieles y comprometidos.",
+      "points": [
+        "Diseño UX/UI que convierte",
+        "Prototipado interactivo rápido",
+        "Sistemas de diseño escalables"
+      ]
+    },
+    {
+      "title": "Desarrollo & Automatización",
+      "description": "Código limpio, escalable y eficiente que crece contigo. Desarrollo full-stack e integraciones inteligentes que potencian y automatizan tu negocio.",
+      "points": [
+        "Aplicaciones web y móviles robustas",
+        "Integraciones API complejas",
+        "Automatización de flujos de trabajo"
+      ]
+    }
+  ],
+  "cta": {
+    "question": "¿Listo para transformar tu sueño en realidad digital?",
+    "button": "Hablemos de tu proyecto"
+  }
+}

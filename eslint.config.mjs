@@ -13,6 +13,20 @@ const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   ...compat.extends('prettier'),
   {
+    ignores: [
+      'node_modules/**',
+      '.next/**',
+      'out/**',
+      'build/**',
+      'dist/**',
+      '**/__tests__/**',
+      '**/*.test.ts',
+      '**/*.test.tsx',
+      '**/*.spec.ts',
+      '**/*.spec.tsx',
+      'playwright-tests/**',
+      'coverage/**',
+    ],
     rules: {
       // TypeScript specific rules
       '@typescript-eslint/no-unused-vars': 'error',

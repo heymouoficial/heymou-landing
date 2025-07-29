@@ -2,7 +2,6 @@
 
 import { motion, Variants } from 'framer-motion';
 import { ChevronRightIcon } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 import { Button } from '../ui/Button';
@@ -78,21 +77,41 @@ export default function HeroSection() {
           {/* Content - 60% */}
           <div className="lg:col-span-3 space-y-8">
             <motion.h1
-              className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold tracking-tight"
               custom={0}
               variants={itemVariants}
             >
-              {t('hero.title')}
+              <span className="text-foreground">{t('hero.title')}</span>
               <br />
-              <span className="bg-gradient-to-b from-neutral-400 to-neutral-600 bg-clip-text text-transparent">{t('hero.titleHighlight')}</span>
+              <span className="text-primary">{t('hero.titleHighlight')}</span>
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-snug"
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-snug"
               custom={1}
               variants={itemVariants}
             >
-              {t('hero.subtitle')}
+              {(() => {
+                const subtitle = t('hero.subtitle');
+                if (!subtitle) return '';
+                
+                const parts = subtitle.split('(');
+                if (parts.length > 1 && parts[1]) {
+                  const beforeParenthesis = parts[0];
+                  const afterParenthesis = parts[1].split(')');
+                  const insideParenthesis = afterParenthesis[0] || '';
+                  const afterClosingParenthesis = afterParenthesis[1] || '';
+                  
+                  return (
+                    <>
+                      {beforeParenthesis}
+                      <span className="italic">({insideParenthesis})</span>
+                      {afterClosingParenthesis}
+                    </>
+                  );
+                }
+                return subtitle;
+              })()}
             </motion.p>
 
             <motion.div
@@ -102,24 +121,30 @@ export default function HeroSection() {
             >
               <Button
                 size="lg"
-                className="px-8 py-6 text-lg group"
-                asChild
+                className="px-8 py-6 text-lg group cursor-pointer"
+                onClick={() => {
+                  const element = document.getElementById('contacto');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
-                <Link href={`/${locale}/contacto`}>
-                  {t('hero.ctaPrimary')}
-                  <ChevronRightIcon className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                {t('hero.ctaPrimary')}
+                <ChevronRightIcon className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-6 text-lg group hover:!bg-background hover:backdrop-blur-sm hover:border-primary/60 hover:shadow-lg transition-all duration-300"
-                asChild
+                className="px-8 py-6 text-lg group hover:!bg-background hover:backdrop-blur-sm hover:border-primary/60 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                onClick={() => {
+                  const element = document.getElementById('casos-exito');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
-                <Link href={`/${locale}/casos-exito`}>
-                  {t('hero.ctaSecondary')}
-                  <ChevronRightIcon className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                {t('hero.ctaSecondary')}
+                <ChevronRightIcon className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </motion.div>
 

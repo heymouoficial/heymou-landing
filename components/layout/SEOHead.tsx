@@ -9,12 +9,21 @@ export interface SEOHeadProps {
   image?: string;
   url?: string;
   locale: Locale;
-  type?: 'website' | 'article' | 'profile';
+  type?: 'website' | 'article' | 'profile' | 'service' | 'organization';
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
   siteName?: string;
   noIndex?: boolean;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  faqData?: Array<{ question: string; answer: string }>;
+  serviceData?: {
+    name: string;
+    description: string;
+    provider: string;
+    areaServed: string;
+    serviceType: string;
+  };
 }
 
 export default function SEOHead({
@@ -28,21 +37,24 @@ export default function SEOHead({
   publishedTime,
   modifiedTime,
   author,
-  siteName = 'Aliado Tecnológico',
-  noIndex = false
+  siteName = 'HeyMou | Tu Aliado Tecnológico',
+  noIndex = false,
+  breadcrumbs = [],
+  faqData = [],
+  serviceData
 }: SEOHeadProps) {
   // Default values based on locale
   const defaultTitle = locale === 'es' 
-    ? 'Aliado Tecnológico - Transformando Sueños en Realidad Digital'
-    : 'Technology Ally - Transforming Dreams into Digital Reality';
+    ? 'HeyMou | Tu Aliado Tecnológico - Transformando Ideas en Realidad Digital'
+    : 'HeyMou | Your Technology Ally - Transforming Ideas into Digital Reality';
     
   const defaultDescription = locale === 'es'
-    ? 'Tu aliado tecnológico para materializar ideas ambiciosas. Desarrollo web, aplicaciones móviles y automatización. Del sueño a la realidad digital.'
-    : 'Your technology ally to materialize ambitious ideas. Web development, mobile applications and automation. From dream to digital reality.';
+    ? 'HeyMou - Transformo ideas ambiciosas en resultados tangibles a través de la tecnología. Estrategia, diseño y desarrollo que conecta con tu audiencia. Tu aliado tecnológico ideal.'
+    : 'HeyMou - I transform ambitious ideas into tangible results through technology. Strategy, design and development that connects with your audience. Your ideal technology ally.';
 
   const defaultKeywords = locale === 'es'
-    ? ['desarrollo web', 'aplicaciones móviles', 'automatización', 'aliado tecnológico', 'transformación digital', 'emprendimiento']
-    : ['web development', 'mobile applications', 'automation', 'technology ally', 'digital transformation', 'entrepreneurship'];
+    ? ['HeyMou', 'Moises', 'Mou', 'aliado tecnológico', 'desarrollo web', 'automatización', 'estrategia digital', 'Next.js', 'BuildShip', 'diseño UX/UI', 'emprendedores']
+    : ['HeyMou', 'Moises', 'Mou', 'technology ally', 'web development', 'automation', 'digital strategy', 'Next.js', 'BuildShip', 'UX/UI design', 'entrepreneurs'];
 
   const finalTitle = title ? `${title} | ${siteName}` : defaultTitle;
   const finalDescription = description || defaultDescription;
@@ -60,8 +72,8 @@ export default function SEOHead({
     logo: `${typeof window !== 'undefined' ? window.location.origin : ''}/images/logo.png`,
     sameAs: [
       // Add your social media URLs here
-      'https://linkedin.com/company/aliado-tecnologico',
-      'https://twitter.com/aliado_tech',
+      'https://linkedin.com/in/heymouoficial',
+      'https://twitter.com/heymouoficial',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -94,14 +106,15 @@ export default function SEOHead({
     image: finalImage,
     author: {
       '@type': 'Person',
-      name: author || 'Aliado Tecnológico'
+      name: author || 'HeyMou',
+      url: typeof window !== 'undefined' ? window.location.origin : ''
     },
     publisher: {
       '@type': 'Organization',
       name: siteName,
       logo: {
         '@type': 'ImageObject',
-        url: `${typeof window !== 'undefined' ? window.location.origin : ''}/images/logo.png`
+        url: `${typeof window !== 'undefined' ? window.location.origin : ''}/logos/SVG/LogoheyMou.svg`
       }
     },
     datePublished: publishedTime,
@@ -109,7 +122,73 @@ export default function SEOHead({
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url
-    }
+    },
+    inLanguage: locale
+  } : null;
+
+  // Service schema for service pages
+  const serviceSchema = serviceData ? {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: serviceData.name,
+    description: serviceData.description,
+    provider: {
+      '@type': 'Organization',
+      name: serviceData.provider,
+      url: typeof window !== 'undefined' ? window.location.origin : ''
+    },
+    areaServed: serviceData.areaServed,
+    serviceType: serviceData.serviceType,
+    availableLanguage: ['Spanish', 'English']
+  } : null;
+
+  // Breadcrumb schema
+  const breadcrumbSchema = breadcrumbs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.url
+    }))
+  } : null;
+
+  // FAQ schema
+  const faqSchema = faqData.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  } : null;
+
+  // Person schema for about page
+  const personSchema = type === 'profile' ? {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Moises (HeyMou)',
+    alternateName: 'HeyMou',
+    description: finalDescription,
+    url: typeof window !== 'undefined' ? window.location.origin : '',
+    image: finalImage,
+    jobTitle: locale === 'es' ? 'Consultor Tecnológico FullStack' : 'FullStack Technology Consultant',
+    worksFor: {
+      '@type': 'Organization',
+      name: siteName
+    },
+    knowsAbout: locale === 'es' 
+      ? ['Desarrollo Web', 'Automatización', 'Estrategia Digital', 'Next.js', 'BuildShip', 'UX/UI Design']
+      : ['Web Development', 'Automation', 'Digital Strategy', 'Next.js', 'BuildShip', 'UX/UI Design'],
+    sameAs: [
+      'https://linkedin.com/in/heymouoficial',
+      'https://twitter.com/heymouoficial'
+    ]
   } : null;
 
   return (
@@ -137,8 +216,8 @@ export default function SEOHead({
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={finalImage} />
-      <meta name="twitter:site" content="@aliado_tech" />
-      <meta name="twitter:creator" content="@aliado_tech" />
+      <meta name="twitter:site" content="@aheymouoficial" />
+      <meta name="twitter:creator" content="@heymouoficial" />
       
       {/* Article specific meta tags */}
       {type === 'article' && publishedTime && (
@@ -180,6 +259,30 @@ export default function SEOHead({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      )}
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {personSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       )}
     </Head>
