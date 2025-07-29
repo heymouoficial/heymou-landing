@@ -6,7 +6,7 @@ import { useTranslation } from '../../src/hooks/useTranslation';
 
 export default function SiteFooter() {
     const { locale } = useTranslation();
-    const currentYear = new Date().getFullYear();
+    const currentYear = 2025; // Fixed year to avoid hydration mismatch
 
     // Social media links
     const socialPlatforms = [
