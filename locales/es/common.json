@@ -96,7 +96,8 @@
           "position": "Fundadora, Camino el Portal del Alma"
         },
         "duration": "3 meses",
-        "technologies": ["WordPress", "UX/UI Design", "Soporte Técnico"]
+        "technologies": ["WordPress", "UX/UI Design", "Soporte Técnico"],
+        "link": "https://caminoelportaldelalma.com"
       },
       {
         "title": "Nopa - Automatización Inteligente",
@@ -117,7 +118,8 @@
           "position": "Co-fundador, Nopa"
         },
         "duration": "4 meses",
-        "technologies": ["BuildShip", "Plugin Personalizado", "ETL Automation"]
+        "technologies": ["BuildShip", "Plugin Personalizado", "ETL Automation"],
+        "link": "https://nopasi.com"
       },
       {
         "title": "Mini Universo - Rebranding Total",
@@ -138,7 +140,8 @@
           "position": "CEO, Mini Universo"
         },
         "duration": "5 meses",
-        "technologies": ["WordPress", "Rebranding", "BuildShip", "HITLS"]
+        "technologies": ["WordPress", "Rebranding", "BuildShip", "HITLS"],
+        "link": "https://miniuniverso.org"
       },
       {
         "title": "Tatua - Conexión Emocional Italo-Venezolana",
@@ -201,7 +204,8 @@
           "position": "Visionaria, Biohacking Cuántico"
         },
         "duration": "8 meses",
-        "technologies": ["Física Cuántica", "Neurociencias", "IA Cocreativa", "Saber Ancestral"]
+        "technologies": ["Física Cuántica", "Neurociencias", "IA Cocreativa", "Saber Ancestral"],
+        "link": "https://biohackingcuantico.com"
       },
       {
         "title": "Tatua - Conexión Emocional Italo-Venezolana",

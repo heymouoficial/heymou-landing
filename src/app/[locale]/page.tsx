@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { SiteHeader } from '../../../components/layout/SiteHeader';
 import SiteFooter from '../../../components/layout/SiteFooter';
-import Chatbot from '../../../components/ui/Chatbot';
+import ElevenlabsChatbot from '../../../components/ui/ElevenlabsChatbot';
 import HeroSection from '../../../components/sections/HeroSection';
 import ServicesSection from '../../../components/sections/ServicesSection';
 import SuccessStoriesSection from '../../../components/sections/SuccessStoriesSection';
@@ -57,7 +57,7 @@ export default function Home() {
         </section>
       </main>
       <SiteFooter />
-      <Chatbot />
+      <ElevenlabsChatbot />
     </div>
   );
 }

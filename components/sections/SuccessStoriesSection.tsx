@@ -56,6 +56,7 @@ interface SuccessStoryItem {
     };
     duration: string;
     technologies: string[];
+    link?: string;
 }
 
 // Success stories data type
@@ -110,18 +111,11 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
 
     const statusConfig = getStatusConfig(story.status);
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="h-full"
+    const CardContent = () => (
+        <GlowCard
+            customSize={true}
+            className="group relative h-full flex flex-col transition-all duration-300 hover:scale-[1.02]"
         >
-            <GlowCard 
-                customSize={true}
-                className="group relative h-full flex flex-col transition-all duration-300 hover:scale-[1.02]"
-            >
                 <div className="relative z-10 flex flex-col flex-grow p-4">
                     {/* Header */}
                     <div className="mb-6">
@@ -228,8 +222,45 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
                             </div>
                         </div>
                     </div>
+
+                    {/* CTA Button - Only show if link exists and card is not already wrapped in link */}
+                    {story.link && (
+                        <div className="mt-6 pt-4 border-t border-primary/10">
+                            <Button
+                                size="sm"
+                                className="w-full group py-3 px-4 h-auto text-sm font-medium transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+                            >
+                                <span className="inline-flex items-center justify-center gap-2">
+                                    <span>Visitar sitio web</span>
+                                    <ChevronRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                </span>
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </GlowCard>
+    );
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="h-full"
+        >
+            {story.link ? (
+                <a
+                    href={story.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                >
+                    <CardContent />
+                </a>
+            ) : (
+                <CardContent />
+            )}
         </motion.div>
     );
 }
@@ -266,7 +297,8 @@ export default function SuccessStoriesSection() {
                     t('successStoriesSection.stories.0.technologies.0'),
                     t('successStoriesSection.stories.0.technologies.1'),
                     t('successStoriesSection.stories.0.technologies.2')
-                ]
+                ],
+                link: 'https://caminoelportaldelalma.com'
             },
             {
                 title: t('successStoriesSection.stories.1.title'),
@@ -291,7 +323,8 @@ export default function SuccessStoriesSection() {
                     t('successStoriesSection.stories.1.technologies.0'),
                     t('successStoriesSection.stories.1.technologies.1'),
                     t('successStoriesSection.stories.1.technologies.2')
-                ]
+                ],
+                link: 'https://nopasi.com'
             },
             {
                 title: t('successStoriesSection.stories.2.title'),
@@ -316,7 +349,8 @@ export default function SuccessStoriesSection() {
                     t('successStoriesSection.stories.2.technologies.0'),
                     t('successStoriesSection.stories.2.technologies.1'),
                     t('successStoriesSection.stories.2.technologies.2')
-                ]
+                ],
+                link: 'https://miniuniverso.org'
             },
             {
                 title: t('successStoriesSection.stories.3.title'),
@@ -391,7 +425,8 @@ export default function SuccessStoriesSection() {
                     t('successStoriesSection.stories.5.technologies.0'),
                     t('successStoriesSection.stories.5.technologies.1'),
                     t('successStoriesSection.stories.5.technologies.2')
-                ]
+                ],
+                link: 'https://biohackingcuantico.com'
             }
         ],
         cta: {
