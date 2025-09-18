@@ -55,7 +55,9 @@ export default function SmartPreloader({
       link.as = 'font';
       link.type = font.type;
       link.href = font.href;
-      link.crossOrigin = font.crossOrigin;
+      if (font.crossOrigin) {
+        link.crossOrigin = font.crossOrigin;
+      }
       link.setAttribute('data-smart-preloader', 'true');
       document.head.appendChild(link);
     });

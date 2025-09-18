@@ -1,5 +1,11 @@
 // Performance monitoring configuration
 
+export interface FontResource {
+  type: string;
+  href: string;
+  crossOrigin?: string;
+}
+
 export const PERFORMANCE_CONFIG = {
   // Core Web Vitals thresholds
   thresholds: {
@@ -58,7 +64,7 @@ export const PERFORMANCE_CONFIG = {
 
   // Critical resources to preload
   criticalResources: {
-    fonts: [],
+    fonts: [] as FontResource[],
     images: [
       '/images/HeyMouHome.webp',
       '/logos/SVG/LogoheyMou.svg'
