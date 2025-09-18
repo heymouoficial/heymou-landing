@@ -30,7 +30,6 @@
 ### Backend & Servicios
 
 - **Next.js API Routes** para endpoints
-- **BuildShip** para workflows complejos
 - **Supabase** para base de datos y autenticación
 
 ### Herramientas de Desarrollo
@@ -143,9 +142,6 @@ NEXT_PUBLIC_SITE_URL=https://heymou.com
 NEXT_PUBLIC_GA_ID=your_google_analytics_id
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=your_domain
 
-# BuildShip Integration (para funcionalidades avanzadas)
-BUILDSHIP_API_KEY=your_buildship_api_key
-BUILDSHIP_CONTACT_ENDPOINT=your_contact_endpoint
 ```
 
 ## 🚀 Despliegue
@@ -236,15 +232,15 @@ Este proyecto es la landing page oficial de mi marca personal de consultoría te
 ¿Necesitas un aliado tecnológico para tu proyecto?
 
 - **Website**: [heymou.com](https://heymou.com)
-- **Email**: <hola@heymou.com>
+- **Email**: <soymoisesvera@gmail.com>
 - **LinkedIn**: [Moisés (Mou)](https://linkedin.com/in/heymou)
-- **Calendly**: [Agenda una consulta](https://calendly.com/heymou)
+- **Cal.com**: [Consultoría Gratuita](https://cal.com/heymou/consultoria-gratis)
 
 ### 🚀 Servicios Disponibles
 
 - **Consultoría Estratégica** - Roadmaps tecnológicos y arquitectura de soluciones
 - **Desarrollo Full-Stack** - Aplicaciones web y móviles escalables
-- **Automatización** - Workflows inteligentes con BuildShip y herramientas no-code
+- **Automatización** - Workflows inteligentes con herramientas no-code
 - **Mentoría Técnica** - Acompañamiento para equipos y emprendedores
 
 ## 🛠️ Stack Tecnológico
@@ -255,7 +251,6 @@ Construido con las mejores herramientas del mercado:
 - [TypeScript](https://www.typescriptlang.org/) - Tipado estático para JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
 - [Framer Motion](https://www.framer.com/motion/) - Animaciones fluidas
-- [BuildShip](https://buildship.app/) - Backend workflows sin código
 - [Supabase](https://supabase.com/) - Base de datos y autenticación
 - [Vercel](https://vercel.com/) - Hosting y deployment
 

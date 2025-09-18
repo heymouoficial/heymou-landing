@@ -75,7 +75,8 @@
   "successStoriesSection": {
     "badge": "De la Idea a la Realidad",
     "title": "Historias que Inspiran",
-    "subtitle": "Cada proyecto es una historia de transformación. Descubre cómo otros emprendedores han materializado sus ideas tecnológicas junto a su aliado tecnológico ideal.",
+    "subtitle": "Cada proyecto es una historia de transformación. Descubre cómo otros emprendedores han materializado sus ideas tecnológicas junto a mí como su aliado tecnológico ideal.",
+    "additionalInfo": "Además de estos proyectos destacados, he estado involucrado como colaborador en el diseño y desarrollo de numerosos proyectos a lo largo de mis más de 15 años de experiencia. Desde Darnel y Mazda hasta personalidades de referencia como Jimenez de Arechaga, mi trayectoria incluye colaboraciones con empresas líderes en Uruguay, Venezuela y la región.",
     "stories": [
       {
         "title": "Camino el Portal del Alma",
@@ -83,20 +84,20 @@
         "industry": "Bienestar Espiritual",
         "location": "Uruguay",
         "status": "live",
-        "challenge": "Necesitaba mejorar la experiencia de usuario de su portal espiritual y optimizar la usabilidad para conectar mejor con su audiencia.",
-        "solution": "Implementamos mejoras significativas en WordPress con enfoque en UX/UI y soporte técnico continuo para optimizar la experiencia del usuario.",
+        "challenge": "Como consultor y director externo, continué mejorando el portal web de este proyecto espiritual fundado por Mónica Brito y dirigido por Roxana Della Croce, enfocado en la conexión espiritual con la naturaleza.",
+        "solution": "Implementé mejoras continuas en WordPress con énfasis en UX/UI y soporte técnico, optimizando la experiencia del usuario para una conexión más profunda con el contenido espiritual.",
         "results": [
           "Mejora del 85% en tiempo de permanencia",
           "Reducción del 60% en tasa de rebote",
-          "Aumento del 40% en conversiones"
+          "Aumento del 40% en conversiones espirituales"
         ],
         "testimonial": {
-          "quote": "La transformación de mi portal fue increíble. Ahora mis usuarios navegan de forma intuitiva y se conectan profundamente con el contenido espiritual.",
+          "quote": "Como tu aliado tecnológico, has transformado completamente cómo nuestros usuarios se conectan con el contenido espiritual. Tu visión holística y experiencia de más de 15 años han sido clave para nuestro crecimiento.",
           "author": "Roxana Della Croce",
-          "position": "Fundadora, Camino el Portal del Alma"
+          "position": "Directora, Camino el Portal del Alma"
         },
-        "duration": "3 meses",
-        "technologies": ["WordPress", "UX/UI Design", "Soporte Técnico"],
+        "duration": "3 meses + mejoras continuas",
+        "technologies": ["WordPress", "UX/UI Design", "Soporte Técnico Continuo"],
         "link": "https://caminoelportaldelalma.com"
       },
       {
@@ -104,21 +105,21 @@
         "clientName": "Roxana Della Croce & Nicolas Mallo",
         "industry": "Automatización",
         "location": "Uruguay",
-        "status": "live",
-        "challenge": "Requerían automatización inteligente para gestión de catálogos con formato ETL, procesando grandes volúmenes de datos de manera eficiente.",
-        "solution": "Desarrollamos una solución personalizada con BuildShip y plugin a medida que automatiza completamente el proceso ETL de catálogos.",
+        "status": "development",
+        "challenge": "Como consultor externo, continué probando las automatizaciones ETL y sincronización de proveedores para unificar el catálogo corporativo antes del lanzamiento completo en octubre.",
+        "solution": "Desarrollé soluciones integrales tanto de Software con IA como productos físicos de diferentes marcas, implementando automatización inteligente para gestión de catálogos con formato ETL.",
         "results": [
           "95% reducción en tiempo de procesamiento",
           "Automatización completa del flujo ETL",
-          "Escalabilidad para miles de productos"
+          "Preparación para lanzamiento en octubre"
         ],
         "testimonial": {
-          "quote": "La automatización que crearon transformó completamente nuestro flujo de trabajo. Lo que antes tomaba días, ahora se hace en minutos.",
+          "quote": "Tu experiencia de más de 15 años y visión holística han sido fundamentales para llevar Nopa al siguiente nivel. Como consultor y director externo, has transformado nuestra operación con soluciones que escalan.",
           "author": "Nicolas Mallo",
           "position": "Co-fundador, Nopa"
         },
-        "duration": "4 meses",
-        "technologies": ["BuildShip", "Plugin Personalizado", "ETL Automation"],
+        "duration": "4 meses + desarrollo continuo",
+        "technologies": ["BuildShip", "Plugin Personalizado", "ETL Automation", "IA"],
         "link": "https://nopasi.com"
       },
       {
@@ -126,20 +127,20 @@
         "clientName": "Marcos Utrera",
         "industry": "Franquicias",
         "location": "Venezuela/Colombia",
-        "status": "development",
-        "challenge": "Necesitaba un rebranding completo de marca y preparar la plataforma para el próximo lanzamiento de automatización para franquicias.",
-        "solution": "Ejecutamos rebranding integral en WordPress y desarrollamos sistema de automatización HITLS para gestión de franquicias con BuildShip.",
+        "status": "live",
+        "challenge": "Como consultor y director externo, realicé un rebranding completo de marca para esta organización que potencia el talento en niñas y jóvenes adolescentes, lanzamos la landing y ahora falta terminar las automatizaciones de atención al cliente y prospección de franquicias.",
+        "solution": "Ejecuté rebranding integral en WordPress y desarrollé sistema de automatización HITLS para gestión de franquicias con BuildShip, enfocándome en potenciar el talento femenino.",
         "results": [
           "Identidad de marca completamente renovada",
-          "Plataforma escalable para franquicias",
-          "Sistema HITLS en desarrollo"
+          "Landing page lanzada",
+          "Automatizaciones de atención al cliente en desarrollo"
         ],
         "testimonial": {
-          "quote": "El rebranding superó todas mis expectativas. La nueva identidad refleja perfectamente la visión de expansión que tenemos para Mini Universo.",
+          "quote": "Tu ética, intención clara y propósito de vida han sido inspiradores en este proyecto. Como consultor externo, has traído no solo expertise técnico sino una visión holística que empodera a las niñas y jóvenes.",
           "author": "Marcos Utrera",
           "position": "CEO, Mini Universo"
         },
-        "duration": "5 meses",
+        "duration": "5 meses + desarrollo continuo",
         "technologies": ["WordPress", "Rebranding", "BuildShip", "HITLS"],
         "link": "https://miniuniverso.org"
       },
@@ -170,19 +171,19 @@
         "industry": "Moda",
         "location": "Uruguay",
         "status": "upcoming",
-        "challenge": "Desarrollar marca de ropa con ADN armenio-uruguayo siguiendo estrategia similar a Tatua pero con identidad cultural única.",
-        "solution": "Implementación de plataforma gemela con personalización cultural armenia y automatización completa de procesos comerciales.",
+        "challenge": "Como consultor y director externo, desarrollé una marca de ropa con ADN armenio-uruguayo siguiendo estrategia similar a Tatua pero con identidad cultural única. El lanzamiento completo de la plataforma y redes sociales se realizará para diciembre.",
+        "solution": "Implementé una plataforma gemela con personalización cultural armenia y automatización completa de procesos comerciales, respetando las raíces culturales.",
         "results": [
           "Identidad cultural armenia integrada",
-          "Plataforma e-commerce personalizada",
-          "Automatización de gestión completa"
+          "Marca con identidad clara definida",
+          "Lanzamiento programado para diciembre"
         ],
         "testimonial": {
-          "quote": "La propuesta respeta y celebra nuestras raíces armenias de una manera que nunca imaginé posible en una plataforma digital.",
+          "quote": "Tu visión holística y ética han sido fundamentales para honrar nuestras raíces armenias. Como consultor externo, has creado una plataforma que no solo vende sino que cuenta nuestra historia cultural.",
           "author": "Rafael Boghtchumian",
           "position": "Fundador, Armeni"
         },
-        "duration": "6 meses",
+        "duration": "6 meses + lanzamiento diciembre",
         "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
       },
       {
@@ -190,64 +191,43 @@
         "clientName": "Runa Quantum",
         "industry": "Tecnología Cuántica",
         "location": "Internacional",
-        "status": "development",
-        "challenge": "Crear un códice toroidal basado en libro y mazo cuántico, integrando física cuántica, neurociencias, saber ancestral e IA cocreativa.",
-        "solution": "Desarrollo de plataforma innovadora que combina conocimiento ancestral con tecnología cuántica y neurociencias aplicadas.",
+        "status": "live",
+        "challenge": "Como consultor y director externo, desarrollo este movimiento psicoespiritual autodidacta influenciado por fuentes con marcada trayectoria como Jacobo Gringberg, Mario Saban, Iñaqui Piñuel, Vishen Lakhiani, Deborah Murcia y Claudio Parra. Nuestro propósito se centra en aportar valor escribiendo un libro toroidal que nos conduce a una transformación cuántica del ser a través del recuerdo maestro.",
+        "solution": "Creo una plataforma innovadora que combina conocimiento ancestral con tecnología cuántica, neurociencias aplicadas e IA cocreativa, fusionando ciencia y sabiduría ancestral.",
         "results": [
           "Códice toroidal funcional",
           "Integración IA cocreativa",
           "Fusión ciencia-sabiduría ancestral"
         ],
         "testimonial": {
-          "quote": "Estamos creando algo revolucionario que une la sabiduría milenaria con la tecnología cuántica más avanzada.",
+          "quote": "Tu propósito de vida y visión holística han sido inspiradores en este proyecto cuántico. Como consultor externo, has traído una perspectiva única que une tecnología avanzada con transformación espiritual profunda.",
           "author": "Runa Quantum",
           "position": "Visionaria, Biohacking Cuántico"
         },
-        "duration": "8 meses",
+        "duration": "8 meses + desarrollo continuo",
         "technologies": ["Física Cuántica", "Neurociencias", "IA Cocreativa", "Saber Ancestral"],
         "link": "https://biohackingcuantico.com"
       },
       {
-        "title": "Tatua - Conexión Emocional Italo-Venezolana",
-        "clientName": "Mauro Cavallo",
-        "industry": "Moda",
-        "location": "Venezuela",
-        "status": "upcoming",
-        "challenge": "Crear una marca de ropa con fuerte conexión emocional y automatización completa para gestión de catálogo y redes sociales.",
-        "solution": "Desarrollo de plataforma WordPress + WooCommerce con automatización BuildShip para Print on Demand y gestión de colecciones.",
+        "title": "Inproim - Diseño Industrial y Automatización",
+        "clientName": "Equipo Inproim",
+        "industry": "Diseño Industrial",
+        "location": "Venezuela/Panamá",
+        "status": "live",
+        "challenge": "Como consultor y director externo, rediseñé la landing page de esta empresa venezolana con presencia en Panamá dedicada al diseño industrial para fábricas de lácteos principalmente, y automatizaciones tecnológicas para la tecnología de alimentos.",
+        "solution": "Implementé un rediseño completo de la landing page y desarrollé un chatbot con base de conocimientos esencial para optimizar la experiencia del usuario.",
         "results": [
-          "Plataforma e-commerce completa",
-          "Automatización de catálogo y RRSS",
-          "Sistema Print on Demand integrado"
+          "Landing page completamente rediseñada",
+          "Chatbot con base de conocimientos implementado",
+          "Mejora en experiencia de usuario industrial"
         ],
         "testimonial": {
-          "quote": "Estoy emocionado por el lanzamiento. La plataforma captura perfectamente la esencia italo-venezolana que quería transmitir.",
-          "author": "Mauro Cavallo",
-          "position": "Fundador, Tatua"
+          "quote": "Tu experiencia de más de 15 años en automatización y diseño industrial ha transformado cómo presentamos nuestros servicios. Como consultor externo, has entendido perfectamente nuestras necesidades técnicas.",
+          "author": "Equipo Inproim",
+          "position": "Empresa de Diseño Industrial"
         },
-        "duration": "6 meses",
-        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
-      },
-      {
-        "title": "Armeni - Herencia Armenio-Uruguaya",
-        "clientName": "Rafael Boghtchumian",
-        "industry": "Moda",
-        "location": "Uruguay",
-        "status": "upcoming",
-        "challenge": "Desarrollar marca de ropa con ADN armenio-uruguayo siguiendo estrategia similar a Tatua pero con identidad cultural única.",
-        "solution": "Implementación de plataforma gemela con personalización cultural armenia y automatización completa de procesos comerciales.",
-        "results": [
-          "Identidad cultural armenia integrada",
-          "Plataforma e-commerce personalizada",
-          "Automatización de gestión completa"
-        ],
-        "testimonial": {
-          "quote": "La propuesta respeta y celebra nuestras raíces armenias de una manera que nunca imaginé posible en una plataforma digital.",
-          "author": "Rafael Boghtchumian",
-          "position": "Fundador, Armeni"
-        },
-        "duration": "6 meses",
-        "technologies": ["WordPress", "WooCommerce", "BuildShip", "Print on Demand"]
+        "duration": "4 meses",
+        "technologies": ["WordPress", "Chatbot", "Diseño Industrial", "Automatización"]
       }
     ],
     "cta": {

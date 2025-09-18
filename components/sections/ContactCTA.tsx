@@ -72,9 +72,9 @@ export function ContactCTA() {
               className="px-8 py-6 text-lg group"
               asChild
             >
-              <a href="mailto:hi@heymou.com" className="flex items-center">
+              <a href="mailto:soymoisesvera@gmail.com" className="flex items-center">
                 <Mail className="mr-3 h-5 w-5" />
-                {locale === 'es' ? 'Escríbeme a hi@heymou.com' : 'Email me at hi@heymou.com'}
+                {locale === 'es' ? 'Escríbeme a soymoisesvera@gmail.com' : 'Email me at soymoisesvera@gmail.com'}
               </a>
             </Button>
 
@@ -85,14 +85,14 @@ export function ContactCTA() {
               className="px-8 py-6 text-lg group"
               asChild
             >
-              <a 
-                href="https://calendly.com/heymou" 
-                target="_blank" 
+              <a
+                href="https://cal.com/heymou/consultoria-gratis"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center"
               >
                 <Calendar className="mr-3 h-5 w-5" />
-                {locale === 'es' ? 'Agenda una consulta gratuita' : 'Schedule a free consultation'}
+                {locale === 'es' ? 'Consultoría Gratuita' : 'Free Consultation'}
               </a>
             </Button>
           </motion.div>
@@ -117,11 +117,11 @@ export function ContactCTA() {
                   : 'Response in less than 24 hours'
                 }
               </p>
-              <a 
-                href="mailto:hi@heymou.com" 
+              <a
+                href="mailto:soymoisesvera@gmail.com"
                 className="text-primary hover:underline font-medium"
               >
-                hi@heymou.com
+                soymoisesvera@gmail.com
               </a>
             </div>
 
@@ -129,17 +129,17 @@ export function ContactCTA() {
             <div className="bg-background/50 border border-border rounded-lg p-6 text-center hover:bg-background/80 transition-colors">
               <Calendar className="w-8 h-8 text-primary mx-auto mb-4" />
               <h3 className="font-semibold mb-2">
-                {locale === 'es' ? 'Consulta Gratuita' : 'Free Consultation'}
+                {locale === 'es' ? 'Consultoría Gratuita' : 'Free Consultation'}
               </h3>
               <p className="text-muted-foreground text-sm mb-3">
-                {locale === 'es' 
+                {locale === 'es'
                   ? '30 minutos para hablar de tu proyecto'
                   : '30 minutes to discuss your project'
                 }
               </p>
-              <a 
-                href="https://calendly.com/heymou" 
-                target="_blank" 
+              <a
+                href="https://cal.com/heymou/consultoria-gratis"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-medium"
               >

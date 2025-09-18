@@ -64,6 +64,7 @@ interface SuccessStoriesData {
     badge: string;
     title: string;
     subtitle: string;
+    additionalInfo: string;
     stories: SuccessStoryItem[];
     cta: {
         question: string;
@@ -114,33 +115,37 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
     const CardContent = () => (
         <GlowCard
             customSize={true}
-            className="group relative h-full flex flex-col transition-all duration-300 hover:scale-[1.02]"
+            className="group relative h-full flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
         >
-                <div className="relative z-10 flex flex-col flex-grow p-4">
+                <div className="relative z-10 flex flex-col flex-grow p-6">
                     {/* Header */}
-                    <div className="mb-6">
-                        <div className="flex items-center justify-between mb-3">
-                            <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full border border-primary/20">
-                                    {story.industry}
-                                </span>
-                                <span className={`text-xs font-medium px-2 py-1 rounded-full border ${statusConfig.color} flex items-center gap-1`}>
-                                    <span className={`w-1.5 h-1.5 rounded-full ${statusConfig.dot}`}></span>
-                                    {statusConfig.label}
-                                </span>
-                            </div>
-                            <div className="flex items-center text-xs text-muted-foreground">
-                                <Clock className="w-3 h-3 mr-1" />
-                                {story.duration}
+                    <div className="mb-4">
+                        <div className="flex items-start justify-between mb-4">
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                        {story.industry}
+                                    </span>
+                                    <span className={`text-xs font-medium px-3 py-1 rounded-full border ${statusConfig.color} flex items-center gap-1.5`}>
+                                        <span className={`w-1.5 h-1.5 rounded-full ${statusConfig.dot}`}></span>
+                                        {statusConfig.label}
+                                    </span>
+                                </div>
+                                <div className="flex items-center text-xs text-muted-foreground">
+                                    <Clock className="w-3 h-3 mr-1.5" />
+                                    {story.duration}
+                                </div>
                             </div>
                         </div>
 
-                        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
                             {story.title}
                         </h3>
 
-                        <p className="text-sm text-muted-foreground mb-2">
-                            <span className="font-medium text-foreground">{story.clientName}</span> • {story.location}
+                        <p className="text-sm text-muted-foreground mb-4">
+                            <span className="font-semibold text-foreground">{story.clientName}</span>
+                            <span className="mx-2 text-muted-foreground/60">•</span>
+                            <span>{story.location}</span>
                         </p>
                     </div>
 
@@ -169,7 +174,7 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
 
                     {/* Results */}
                     <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center">
+                        <h4 className="text-sm font-semibold text-foreground mb-4 flex items-center">
                             <TrendingUp className="w-4 h-4 mr-2 text-primary" />
                             Resultados
                         </h4>
@@ -177,10 +182,10 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
                             {story.results.map((result, i) => (
                                 <div
                                     key={i}
-                                    className="flex items-center text-sm bg-primary/5 rounded-lg p-2 border border-primary/10"
+                                    className="flex items-start text-sm bg-primary/5 rounded-lg p-3 border border-primary/10 hover:bg-primary/10 transition-colors"
                                 >
-                                    <span className="text-primary mr-2">✓</span>
-                                    <span className="text-foreground font-medium">{result}</span>
+                                    <span className="text-primary mr-3 mt-0.5 flex-shrink-0">✓</span>
+                                    <span className="text-foreground font-medium leading-relaxed">{result}</span>
                                 </div>
                             ))}
                         </div>
@@ -188,11 +193,12 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
 
                     {/* Technologies */}
                     <div className="mb-6">
-                        <div className="flex flex-wrap gap-1">
+                        <h5 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Tecnologías</h5>
+                        <div className="flex flex-wrap gap-2">
                             {story.technologies.map((tech, i) => (
                                 <span
                                     key={i}
-                                    className="text-xs bg-background/50 text-muted-foreground px-2 py-1 rounded border border-primary/20"
+                                    className="text-xs bg-background/60 text-muted-foreground px-3 py-1.5 rounded-md border border-primary/20 font-medium"
                                 >
                                     {tech}
                                 </span>
@@ -202,17 +208,17 @@ function SuccessStoryCard({ story, index }: SuccessStoryCardProps) {
 
                     {/* Testimonial */}
                     <div className="mt-auto">
-                        <div className="bg-background/30 rounded-lg p-4 border border-primary/20">
-                            <Quote className="w-4 h-4 text-primary mb-2" />
-                            <blockquote className="text-sm text-foreground/90 italic leading-relaxed mb-3">
+                        <div className="bg-gradient-to-br from-background/40 to-background/20 rounded-xl p-6 border border-primary/10 shadow-sm">
+                            <Quote className="w-4 h-4 text-primary mb-4" />
+                            <blockquote className="text-sm text-foreground/90 italic leading-relaxed mb-5 px-2">
                                 &ldquo;{story.testimonial.quote}&rdquo;
                             </blockquote>
-                            <div className="flex items-center">
-                                <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                            <div className="flex items-center px-2">
+                                <div className="w-9 h-9 bg-primary/15 rounded-full flex items-center justify-center mr-3">
                                     <Users className="w-4 h-4 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-foreground">
+                                    <p className="text-sm font-semibold text-foreground">
                                         {story.testimonial.author}
                                     </p>
                                     <p className="text-xs text-muted-foreground">
@@ -273,6 +279,7 @@ export default function SuccessStoriesSection() {
         badge: t('successStoriesSection.badge'),
         title: t('successStoriesSection.title'),
         subtitle: t('successStoriesSection.subtitle'),
+        additionalInfo: t('successStoriesSection.additionalInfo'),
         stories: [
             {
                 title: t('successStoriesSection.stories.0.title'),
@@ -491,6 +498,19 @@ export default function SuccessStoriesSection() {
                             index={index}
                         />
                     ))}
+                </motion.div>
+
+                {/* Additional Info Paragraph */}
+                <motion.div
+                    className="mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, type: 'spring' }}
+                >
+                    <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed text-center">
+                        {successStoriesData.additionalInfo}
+                    </p>
                 </motion.div>
 
                 {/* Bottom CTA */}

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useTranslation } from '../../src/hooks/useTranslation';
 
@@ -28,15 +29,21 @@ export default function SiteFooter() {
 
                     {/* Left Side - Brand */}
                     <div className="flex flex-col gap-6 max-w-xs lg:gap-8 lg:max-w-sm lg:flex-shrink-0">
-                        {/* Logo HeyMou como texto */}
+                        {/* Logo HeyMou */}
                         <Link href={`/${locale}`} className="inline-block hover:opacity-80 transition-opacity">
-                            <h2 className="text-white text-2xl font-semibold lg:text-3xl">HeyMou</h2>
+                            <Image
+                                src="/logos/SVG/LogoheyMou.svg"
+                                alt="HeyMou"
+                                width={32}
+                                height={32}
+                                className="h-8 w-auto"
+                            />
                         </Link>
 
                         {/* Description Text - Exacto como Figma */}
                         <div className="text-white text-sm leading-relaxed lg:text-base">
                             <p>Transformando sueños en realidad digital.</p>
-                            <p>Tu aliado tecnológico para materializar</p>
+                            <p><span className="text-primary font-medium">Tu aliado tecnológico</span> para materializar</p>
                             <p>ideas ambiciosas.</p>
                         </div>
                     </div>

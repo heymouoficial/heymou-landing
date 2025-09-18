@@ -218,11 +218,11 @@ To give you an accurate quote, I need to know more details about your project. W
     response: {
       es: `¡Perfecto! Hay varias formas de conectar conmigo:
 
-**📅 Agenda una consulta gratuita:**
-[Calendly - 30 min gratuitos](https://calendly.com/heymou)
+**📅 Consultoría Gratuita:**
+[Cal.com - 30 min gratuitos](https://cal.com/heymou/consultoria-gratis)
 
 **📧 Email directo:**
-hi@heymou.com
+soymoisesvera@gmail.com
 
 **💼 LinkedIn:**
 [linkedin.com/in/heymou](https://linkedin.com/in/heymou)
@@ -233,11 +233,11 @@ hi@heymou.com
 **¿Prefieres que te contacte por algún medio específico?** También puedes contarme brevemente sobre tu proyecto aquí y te daré algunas recomendaciones iniciales.`,
       en: `Perfect! There are several ways to connect with me:
 
-**📅 Schedule a free consultation:**
-[Calendly - 30 free minutes](https://calendly.com/heymou)
+**📅 Free Consultation:**
+[Cal.com - 30 free minutes](https://cal.com/heymou/consultoria-gratis)
 
 **📧 Direct email:**
-hi@heymou.com
+soymoisesvera@gmail.com
 
 **💼 LinkedIn:**
 [linkedin.com/in/heymou](https://linkedin.com/in/heymou)
@@ -343,7 +343,7 @@ I'm here to help you with any questions about:
 👨‍🏫 **Mentoría técnica** - Acompañamiento especializado
 📞 **Contacto directo** - Para consultas específicas
 
-¿Te gustaría que te conecte directamente con Mou para una consulta personalizada? Puedes agendar 30 minutos gratuitos en [calendly.com/heymou](https://calendly.com/heymou)
+¿Te gustaría que te conecte directamente con Mou para una consulta personalizada? Puedes agendar 30 minutos gratuitos en [cal.com/heymou/consultoria-gratis](https://cal.com/heymou/consultoria-gratis)
 
 **¿Hay algo específico sobre tecnología o tu proyecto en lo que pueda ayudarte?**`,
       en: `Interesting question. Although I don't have specific information about that, I can help you with:
@@ -353,7 +353,7 @@ I'm here to help you with any questions about:
 👨‍🏫 **Technical mentoring** - Specialized support
 📞 **Direct contact** - For specific consultations
 
-Would you like me to connect you directly with Mou for a personalized consultation? You can schedule 30 free minutes at [calendly.com/heymou](https://calendly.com/heymou)
+Would you like me to connect you directly with Mou for a personalized consultation? You can schedule 30 free minutes at [cal.com/heymou/consultoria-gratis](https://cal.com/heymou/consultoria-gratis)
 
 **Is there something specific about technology or your project I can help you with?**`
     }
