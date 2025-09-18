@@ -16,8 +16,8 @@ export interface NavigationProps {
 // Content types
 export interface ContentBlock {
   type: 'paragraph' | 'heading' | 'image' | 'code' | 'quote' | 'list';
-  content: any;
-  metadata?: any;
+  content: string | Record<string, unknown>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface BlogPost {
@@ -31,9 +31,7 @@ export interface BlogPost {
   publishedAt: string;
   featured: boolean;
   tags: string[];
-  content?: {
-    blocks: ContentBlock[];
-  };
+  content?: string;
   metadata?: {
     seoTitle?: string;
     seoDescription?: string;
@@ -132,13 +130,11 @@ export interface ContactFormProps {
 export interface APIError {
   code: string;
   message: string;
-  details?: any;
+  details?: Record<string, unknown>;
   timestamp: Date;
 }
 
 // Environment configuration
 export interface EnvironmentConfig {
-  NEXT_PUBLIC_BUILDSHIP_API_URL: string;
-  BUILDSHIP_WEBHOOK_SECRET: string;
   ANALYTICS_ID?: string;
 }

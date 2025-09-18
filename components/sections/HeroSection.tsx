@@ -87,31 +87,12 @@ export default function HeroSection() {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-snug"
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-snug whitespace-pre-line"
               custom={1}
               variants={itemVariants}
+              suppressHydrationWarning={true}
             >
-              {(() => {
-                const subtitle = t('hero.subtitle');
-                if (!subtitle) return '';
-                
-                const parts = subtitle.split('(');
-                if (parts.length > 1 && parts[1]) {
-                  const beforeParenthesis = parts[0];
-                  const afterParenthesis = parts[1].split(')');
-                  const insideParenthesis = afterParenthesis[0] || '';
-                  const afterClosingParenthesis = afterParenthesis[1] || '';
-                  
-                  return (
-                    <>
-                      {beforeParenthesis}
-                      <span className="italic">({insideParenthesis})</span>
-                      {afterClosingParenthesis}
-                    </>
-                  );
-                }
-                return subtitle;
-              })()}
+              {t('hero.subtitle')}
             </motion.p>
 
             <motion.div
@@ -190,23 +171,26 @@ export default function HeroSection() {
             />
 
             {/* Floating Badges */}
-            <div className="absolute top-4 right-4 z-20">
+            <div className="absolute top-4 right-4 z-20 space-y-2">
               <div className="bg-background/80 backdrop-blur-sm border border-foreground/10 px-3 py-1.5 rounded-md text-xs font-medium text-foreground/90 flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                 </span>
                 <span>
-                  {locale === 'es' ? 'Disponible en un mes' : 'Available within one month'}
+                  {locale === 'es' ? 'Disponible para proyectos' : 'Available for projects'}
+                </span>
+              </div>
+              <div className="bg-primary/90 backdrop-blur-sm border border-primary/20 px-3 py-1.5 rounded-md text-xs font-medium text-primary-foreground flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-pulse inline-flex rounded-full h-2.5 w-2.5 bg-primary-foreground"></span>
+                </span>
+                <span>
+                  {locale === 'es' ? 'Spots disponibles 2/5' : 'Available spots 2/5'}
                 </span>
               </div>
             </div>
 
-            <div className="absolute bottom-4 left-4 z-20">
-              <div className="bg-background/80 backdrop-blur-sm border border-foreground/10 px-3 py-1.5 rounded-md text-xs font-medium text-foreground/90">
-                {locale === 'es' ? 'Respuesta inmediata' : 'Immediate response'}
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </div>

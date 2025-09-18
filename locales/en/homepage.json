@@ -1,14 +1,14 @@
 {
   "hero": {
     "title": "Your ideas deserve a",
-    "titleHighlight": "technology ally",
-    "subtitle": "Hi, I'm Moisés. (You can call me Mou) For over 15 years I have focused on transforming ambitious ideas into tangible results through technology, strategy, design and development that connects with your audience.",
-    "ctaPrimary": "Let's Work Together",
-    "ctaSecondary": "See My Work",
+    "titleHighlight": "strategic technology ally",
+    "subtitle": "Hi, I'm Moisés (you can call me Mou).\nI help turn ideas into unforgettable brands and products, combining multisensory branding (that is, creating experiences that connect with all senses), Lean UX design, and AI-driven digital transformation.\nMy experience of more than 15 years allows me to transform ambitious projects into efficient and scalable results, adapted to the growth pace of your business.",
+    "ctaPrimary": "Start Your Transformation",
+    "ctaSecondary": "Discover My Expertise",
     "stats": {
-      "projects": "+70 Projects",
-      "experience": "+15 Years",
-      "countries": "5 Countries"
+      "projects": "+70 Successful Projects",
+      "experience": "+15 Years of Innovation",
+      "countries": "5 Countries Transformed"
     }
   }
 }

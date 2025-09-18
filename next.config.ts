@@ -6,8 +6,8 @@ const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 const nextConfig: NextConfig = {
   // Exclude test files from build
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  
-  // Performance optimizations
+
+  // Performance optimizations for Vercel
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -15,17 +15,23 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Vercel-specific image optimization
+    unoptimized: false, // Use Vercel's image optimization
   },
-  
+
   // Compression
   compress: true,
-  
+
+  // Production optimizations
+  poweredByHeader: false, // Remove X-Powered-By header
+  reactStrictMode: true,
+
   // Experimental features for performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
-  
-  // Turbopack configuration (moved from experimental.turbo)
+
+  // Turbopack configuration
   turbopack: {
     rules: {
       '*.svg': {
@@ -34,6 +40,9 @@ const nextConfig: NextConfig = {
       },
     },
   },
+
+  // Vercel-specific optimizations
+  output: 'standalone', // For Vercel deployment
   
   // Headers for security and performance
   async headers() {
@@ -51,7 +60,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'DENY'
           },
           {
             key: 'X-Content-Type-Options',
@@ -59,7 +68,44 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://unpkg.com https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
+              "img-src 'self' data: https: blob:",
+              "connect-src 'self' https://*.supabase.co https://*.google-analytics.com https://*.googletagmanager.com https://*.elevenlabs.io",
+              "frame-src 'none'",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'"
+            ].join('; ')
+          }
+        ]
+      },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'none'; frame-ancestors 'none'"
           }
         ]
       },

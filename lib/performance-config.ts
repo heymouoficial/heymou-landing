@@ -58,16 +58,10 @@ export const PERFORMANCE_CONFIG = {
 
   // Critical resources to preload
   criticalResources: {
-    fonts: [
-      {
-        href: '/fonts/geist-sans.woff2',
-        type: 'font/woff2',
-        crossOrigin: 'anonymous' as const
-      }
-    ],
+    fonts: [],
     images: [
-      '/images/hero-image.jpg',
-      '/images/logo.svg'
+      '/images/HeyMouHome.webp',
+      '/logos/SVG/LogoheyMou.svg'
     ],
     scripts: [],
     stylesheets: []
@@ -77,7 +71,6 @@ export const PERFORMANCE_CONFIG = {
   prefetchPages: [
     '/servicios',
     '/casos-exito',
-    '/blog',
     '/contacto'
   ]
 } as const;

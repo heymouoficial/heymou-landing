@@ -229,4 +229,4 @@ Your idea deserves to be tested in the real world, not perfected in isolation.
 
 ---
 
-**Ready to validate your idea with a strategic MVP?** [Let's design your validation strategy](mailto:hi@heymou.com) and launch smart, not hard.
+**Ready to validate your idea with a strategic MVP?** [Let's design your validation strategy](mailto:soymoisesvera@gmail.com) and launch smart, not hard.

@@ -1,38 +1,38 @@
 {
-  "badge": "How I Help You",
-  "title": "Your Comprehensive Technology Ally",
-  "subtitle": "From idea to implementation, I accompany you every step of the way. Strategy, design and development that transforms dreams into digital reality.",
+  "badge": "My Strategic Approach",
+  "title": "Ultra-Efficient Digital Transformation",
+  "subtitle": "I fuse strategy, design, and technology to create inevitable products. My proven methodology accelerates your growth while reducing operational costs by 60%.",
   "items": [
     {
-      "title": "Strategy & Consulting",
-      "description": "I transform your vision into an executable plan. As your technology ally, I deeply analyze your business to create clear roadmaps and intelligent decisions.",
+      "title": "Multisensory Branding + AI",
+      "description": "I build brands that become inevitable. I combine brand strategy with AI to create experiences your customers can't resist, generating automatic loyalty.",
       "points": [
-        "Scalable solution architecture",
-        "Personalized technology strategy",
-        "Digital process optimization"
+        "AI-integrated brand strategy",
+        "Unique multisensory experiences",
+        "300% measurable ROI in engagement"
       ]
     },
     {
-      "title": "Design & Experience",
-      "description": "Interfaces that emotionally connect with your audience. User-centered design that converts visitors into loyal and engaged customers.",
+      "title": "Lean UX + Optimized Conversion",
+      "description": "Design that sells from the first click. My Lean UX approach reduces development time by 40% while increasing conversions by 150% with intuitive and persuasive interfaces.",
       "points": [
-        "Converting UX/UI design",
-        "Rapid interactive prototyping",
-        "Scalable design systems"
+        "Ultra-fast AI-powered prototyping",
+        "Integrated conversion optimization",
+        "Interfaces that generate immediate action"
       ]
     },
     {
-      "title": "Development & Automation",
-      "description": "Clean, scalable and efficient code that grows with you. Full-stack development and intelligent integrations that power and automate your business.",
+      "title": "Intelligent Automation + Scalability",
+      "description": "Systems that grow on their own. I develop solutions that automate complex operations, freeing your time for strategy while scaling without technical limits.",
       "points": [
-        "Robust web and mobile applications",
-        "Complex API integrations",
-        "Workflow automation"
+        "Automation of critical processes",
+        "Scalable serverless architecture",
+        "AI integrations for maximum efficiency"
       ]
     }
   ],
   "cta": {
-    "question": "Ready to transform your dream into digital reality?",
-    "button": "Let's talk about your project"
+    "question": "Want results that sell themselves?",
+    "button": "Discover my proven methodology"
   }
 }

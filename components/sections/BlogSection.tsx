@@ -2,11 +2,12 @@
 
 import { motion, Variants } from 'framer-motion';
 import { Clock, ChevronRightIcon, BookOpen, Filter } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+import { useTranslation } from '@/hooks/useTranslation';
+
 import { GlowCard } from '../ui/spotlight-card';
-import { useTranslation } from '../../src/hooks/useTranslation';
 import { Button } from '../ui/Button';
 import { BlogPost, BlogSectionData } from '../../types';
 
@@ -60,26 +61,8 @@ interface BlogCardProps {
 }
 
 function BlogCard({ post, index, locale, readingTimeLabel }: BlogCardProps) {
-  // Map post titles to slugs
-  const getSlugFromTitle = (title: string): string => {
-    const slugMap: { [key: string]: string } = {
-      '¿Por qué tu web necesita ser más que bonita?': 'por-que-tu-web-necesita-ser-mas-que-bonita',
-      'Automatización: Tu mejor empleado que nunca duerme': 'automatizacion-tu-mejor-empleado',
-      'BuildShip vs Zapier: ¿Cuál elegir para tu negocio?': 'buildship-vs-zapier-cual-elegir',
-      'Next.js explicado para emprendedores': 'nextjs-explicado-para-emprendedores',
-      'UX que vende: Diseño centrado en conversión': 'ux-que-vende-diseno-centrado-en-conversion',
-      'MVP: Cómo lanzar sin morir en el intento': 'mvp-guia-emprendedores',
-      'Why your website needs to be more than pretty?': 'why-your-website-needs-to-be-more-than-pretty',
-      'Automation: Your best employee that never sleeps': 'automation-your-best-employee-that-never-sleeps',
-      'BuildShip vs Zapier: Which to choose for your business?': 'buildship-vs-zapier-which-to-choose',
-      'Next.js explained for entrepreneurs': 'nextjs-explained-for-entrepreneurs',
-      'UX that sells: Conversion-centered design': 'ux-that-sells-conversion-centered-design',
-      'MVP: How to launch without dying trying': 'mvp-guide-for-entrepreneurs'
-    };
-    return slugMap[title] || title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-  };
-
-  const slug = getSlugFromTitle(post.title);
+  // Use slug from post data, fallback to generated slug
+  const slug = post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
   return (
     <motion.div
@@ -201,14 +184,47 @@ function CategoryFilter({ categories, activeCategory, onCategoryChange, locale }
 export default function BlogSection() {
   const { locale } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('all');
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Static blog data to avoid translation issues
+  // Load blog posts dynamically from API
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const response = await fetch(`/api/blog?locale=${locale}`);
+        if (response.ok) {
+          const data = await response.json();
+          // Ensure we have valid blog posts data
+          const posts = Array.isArray(data.posts) ? data.posts : [];
+          setBlogPosts(posts);
+        } else {
+          const errorMessage = `Failed to fetch blog posts: ${response.status} ${response.statusText}`;
+          setError(errorMessage);
+          setBlogPosts([]);
+        }
+      } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+        setError(`Error loading blog posts: ${errorMessage}`);
+        setBlogPosts([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, [locale]);
+
+  // Dynamic blog data structure
   const blogData: BlogSectionData = {
-    badge: locale === 'es' ? 'Tips Tecnológicos Exprés' : 'Express Tech Tips',
-    title: locale === 'es' ? 'Desmitificando la Tecnología' : 'Demystifying Technology',
+    badge: locale === 'es' ? 'Conocimiento que Convierte' : 'Knowledge that Converts',
+    title: locale === 'es' ? 'Tecnología que Acelera tu Crecimiento' : 'Technology that Accelerates Your Growth',
     subtitle: locale === 'es'
-      ? 'Conocimiento práctico y accesible para emprendedores que quieren entender la tecnología sin perderse en tecnicismos. Te explico lo complejo de forma simple.'
-      : 'Practical and accessible knowledge for entrepreneurs who want to understand technology without getting lost in technicalities. I explain the complex in simple terms.',
+      ? 'Insights estratégicos que transforman la forma de hacer negocios. Aprende a usar la tecnología no como un costo, sino como tu ventaja competitiva más poderosa.'
+      : 'Strategic insights that transform how you do business. Learn to use technology not as a cost, but as your most powerful competitive advantage.',
     categories: {
       all: locale === 'es' ? 'Todos' : 'All',
       strategy: locale === 'es' ? 'Estrategia' : 'Strategy',
@@ -218,139 +234,23 @@ export default function BlogSection() {
       business: locale === 'es' ? 'Negocio' : 'Business'
     },
     readingTime: locale === 'es' ? 'min de lectura' : 'min read',
-    posts: locale === 'es' ? [
-      {
-        id: '1',
-        title: '¿Por qué tu web necesita ser más que bonita?',
-        description: 'Descubre por qué una web exitosa va más allá del diseño visual y cómo la estrategia tecnológica puede transformar tu negocio.',
-        category: 'strategy',
-        readingTime: 5,
-        publishedAt: '2025-07-15',
-        featured: true,
-        tags: ['estrategia', 'web', 'negocio']
-      },
-      {
-        id: '2',
-        title: 'Automatización: Tu mejor empleado que nunca duerme',
-        description: 'Cómo la automatización puede liberar tu tiempo para enfocarte en lo que realmente importa en tu emprendimiento.',
-        category: 'automation',
-        readingTime: 7,
-        publishedAt: '2025-07-10',
-        featured: true,
-        tags: ['automatización', 'productividad', 'emprendimiento']
-      },
-      {
-        id: '3',
-        title: 'BuildShip vs Zapier: ¿Cuál elegir para tu negocio?',
-        description: 'Comparación práctica entre las principales herramientas de automatización y cuál se adapta mejor a tu proyecto.',
-        category: 'automation',
-        readingTime: 6,
-        publishedAt: '2025-07-05',
-        featured: false,
-        tags: ['buildship', 'zapier', 'herramientas']
-      },
-      {
-        id: '4',
-        title: 'Next.js explicado para emprendedores',
-        description: 'Qué es Next.js y por qué podría ser la mejor decisión tecnológica para tu startup, explicado sin tecnicismos.',
-        category: 'development',
-        readingTime: 8,
-        publishedAt: '2024-12-20',
-        featured: true,
-        tags: ['nextjs', 'desarrollo', 'startup']
-      },
-      {
-        id: '5',
-        title: 'UX que vende: Diseño centrado en conversión',
-        description: 'Los principios de diseño UX que realmente importan para convertir visitantes en clientes pagadores.',
-        category: 'design',
-        readingTime: 6,
-        publishedAt: '2024-12-15',
-        featured: false,
-        tags: ['ux', 'conversión', 'diseño']
-      },
-      {
-        id: '6',
-        title: 'MVP: Cómo lanzar sin morir en el intento',
-        description: 'La estrategia para crear tu Producto Mínimo Viable sin gastar una fortuna ni perder años de desarrollo.',
-        category: 'business',
-        readingTime: 9,
-        publishedAt: '2024-12-10',
-        featured: false,
-        tags: ['mvp', 'startup', 'estrategia']
-      }
-    ] : [
-      {
-        id: '1',
-        title: 'Why your website needs to be more than pretty?',
-        description: 'Discover why a successful website goes beyond visual design and how technology strategy can transform your business.',
-        category: 'strategy',
-        readingTime: 5,
-        publishedAt: '2025-07-15',
-        featured: true,
-        tags: ['strategy', 'web', 'business']
-      },
-      {
-        id: '2',
-        title: 'Automation: Your best employee that never sleeps',
-        description: 'How automation can free up your time to focus on what really matters in your entrepreneurship.',
-        category: 'automation',
-        readingTime: 7,
-        publishedAt: '2025-07-10',
-        featured: true,
-        tags: ['automation', 'productivity', 'entrepreneurship']
-      },
-      {
-        id: '3',
-        title: 'BuildShip vs Zapier: Which to choose for your business?',
-        description: 'Practical comparison between the main automation tools and which one best fits your project.',
-        category: 'automation',
-        readingTime: 6,
-        publishedAt: '2025-07-05',
-        featured: false,
-        tags: ['buildship', 'zapier', 'tools']
-      },
-      {
-        id: '4',
-        title: 'Next.js explained for entrepreneurs',
-        description: 'What Next.js is and why it could be the best technological decision for your startup, explained without technicalities.',
-        category: 'development',
-        readingTime: 8,
-        publishedAt: '2024-12-20',
-        featured: true,
-        tags: ['nextjs', 'development', 'startup']
-      },
-      {
-        id: '5',
-        title: 'UX that sells: Conversion-centered design',
-        description: 'The UX design principles that really matter to convert visitors into paying customers.',
-        category: 'design',
-        readingTime: 6,
-        publishedAt: '2024-12-15',
-        featured: false,
-        tags: ['ux', 'conversion', 'design']
-      },
-      {
-        id: '6',
-        title: 'MVP: How to launch without dying trying',
-        description: 'The strategy to create your Minimum Viable Product without spending a fortune or losing years of development.',
-        category: 'business',
-        readingTime: 9,
-        publishedAt: '2024-12-10',
-        featured: false,
-        tags: ['mvp', 'startup', 'strategy']
-      }
-    ],
+    posts: blogPosts,
     cta: {
-      question: locale === 'es' ? '¿Quieres más consejos tecnológicos personalizados?' : 'Want more personalized tech advice?',
-      button: locale === 'es' ? 'Hablemos de tu proyecto' : "Let's talk about your project"
+      question: locale === 'es' ? '¿Listo para convertir la tecnología en tu superpoder?' : 'Ready to turn technology into your superpower?',
+      button: locale === 'es' ? 'Descubre mi metodología' : 'Discover my methodology'
     }
   };
 
-  // Filter posts based on active category
-  const filteredPosts = activeCategory === 'all'
-    ? blogData.posts
-    : blogData.posts.filter(post => post.category === activeCategory);
+  // Filter posts based on active category with type safety
+  const filteredPosts = React.useMemo(() => {
+    if (!Array.isArray(blogData.posts)) return [];
+
+    return activeCategory === 'all'
+      ? blogData.posts
+      : blogData.posts.filter((post): post is BlogPost =>
+          post && typeof post === 'object' && post.category === activeCategory
+        );
+  }, [blogData.posts, activeCategory]);
 
   return (
     <section
@@ -407,28 +307,67 @@ export default function BlogSection() {
           />
         </motion.div>
 
+        {/* Loading State */}
+        {isLoading && (
+          <motion.div
+            className="text-center py-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+            <p className="text-muted-foreground">
+              {locale === 'es' ? 'Cargando artículos...' : 'Loading articles...'}
+            </p>
+          </motion.div>
+        )}
+
+        {/* Error State */}
+        {error && !isLoading && (
+          <motion.div
+            className="text-center py-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="w-16 h-16 text-red-500 mx-auto mb-4">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold mb-2 text-red-600">
+              {locale === 'es' ? 'Error al cargar artículos' : 'Error loading articles'}
+            </h3>
+            <p className="text-muted-foreground text-sm max-w-md mx-auto">
+              {error}
+            </p>
+          </motion.div>
+        )}
+
         {/* Blog Posts Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={containerVariants}
-          key={activeCategory} // Re-animate when category changes
-        >
-          {filteredPosts.map((post: BlogPost, index: number) => (
-            <BlogCard
-              key={post.id}
-              post={post}
-              index={index}
-              locale={locale}
-              readingTimeLabel={blogData.readingTime}
-            />
-          ))}
-        </motion.div>
+        {!isLoading && !error && (
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={containerVariants}
+            key={activeCategory} // Re-animate when category changes
+          >
+            {filteredPosts.map((post: BlogPost, index: number) => (
+              <BlogCard
+                key={post.id || `post-${index}`}
+                post={post}
+                index={index}
+                locale={locale}
+                readingTimeLabel={blogData.readingTime}
+              />
+            ))}
+          </motion.div>
+        )}
 
         {/* Empty state */}
-        {filteredPosts.length === 0 && (
+        {!isLoading && !error && filteredPosts.length === 0 && (
           <motion.div
             className="text-center py-16"
             initial={{ opacity: 0 }}

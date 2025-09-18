@@ -275,4 +275,4 @@ The best UX is invisible to users but visible in your conversion metrics.
 
 ---
 
-**Want to optimize your UX for conversions?** [Let's analyze your current funnel](mailto:hi@heymou.com) and identify the biggest opportunities for improvement.
+**Want to optimize your UX for conversions?** [Let's analyze your current funnel](mailto:soymoisesvera@gmail.com) and identify the biggest opportunities for improvement.

@@ -2,78 +2,73 @@
 
 import { useEffect } from 'react';
 
-import { sendToAnalytics, initPerformanceMonitoring } from '../../lib/analytics';
+// Extend Window interface for web-vitals initialization tracking
+declare global {
+  interface Window {
+    __webVitalsInitialized?: boolean;
+  }
+}
+
+// Web Vitals metric type
+interface WebVitalsMetric {
+  name: string;
+  value: number;
+  rating: 'good' | 'needs-improvement' | 'poor';
+  id: string;
+}
 
 // Web Vitals component to track Core Web Vitals
 export default function WebVitals() {
   useEffect(() => {
-    // Initialize performance monitoring
-    initPerformanceMonitoring();
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return;
+    }
 
-    // Dynamically import web-vitals to avoid SSR issues
-    import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
-      // Track Core Web Vitals with proper typing
-      onCLS((metric) => {
-        sendToAnalytics({
-          name: 'CLS',
-          value: metric.value,
-          rating: metric.rating,
-          delta: metric.delta,
-          id: metric.id,
-          navigationType: metric.navigationType
-        });
-      });
+    // Check if already initialized to prevent duplicate registrations during HMR
+    if (window.__webVitalsInitialized) {
+      return;
+    }
 
-      onFCP((metric) => {
-        sendToAnalytics({
-          name: 'FCP',
-          value: metric.value,
-          rating: metric.rating,
-          delta: metric.delta,
-          id: metric.id,
-          navigationType: metric.navigationType
-        });
-      });
+    // Use a longer delay to ensure all modules are loaded and HMR is stable
+    const timer = setTimeout(() => {
+      // Dynamically import and initialize web-vitals with better error handling
+      import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
+        // Mark as initialized
+        window.__webVitalsInitialized = true;
 
-      onLCP((metric) => {
-        sendToAnalytics({
-          name: 'LCP',
-          value: metric.value,
-          rating: metric.rating,
-          delta: metric.delta,
-          id: metric.id,
-          navigationType: metric.navigationType
-        });
-      });
+        // Safe wrapper for analytics calls
+        const safeSendAnalytics = (metric: WebVitalsMetric) => {
+          try {
+            if (typeof window !== 'undefined' && window.gtag) {
+              window.gtag('event', metric.name, {
+                event_category: 'Web Vitals',
+                event_label: metric.id,
+                value: Math.round(metric.value),
+                metric_rating: metric.rating
+              });
+            }
+          } catch {
+            // Silent fail - no logging needed for analytics errors
+          }
+        };
 
-      onTTFB((metric) => {
-        sendToAnalytics({
-          name: 'TTFB',
-          value: metric.value,
-          rating: metric.rating,
-          delta: metric.delta,
-          id: metric.id,
-          navigationType: metric.navigationType
-        });
+        // Register metrics with error handling
+        try {
+          onCLS(safeSendAnalytics);
+          onFCP(safeSendAnalytics);
+          onLCP(safeSendAnalytics);
+          onTTFB(safeSendAnalytics);
+          onINP(safeSendAnalytics);
+        } catch {
+          // Silent fail if registration fails
+        }
+      }).catch(() => {
+        // Silent fail if import fails
       });
+    }, 2000); // Increased delay to avoid HMR conflicts
 
-      // INP (Interaction to Next Paint) - newer metric replacing FID
-      onINP((metric) => {
-        sendToAnalytics({
-          name: 'INP',
-          value: metric.value,
-          rating: metric.rating,
-          delta: metric.delta,
-          id: metric.id,
-          navigationType: metric.navigationType
-        });
-      });
-    }).catch((error) => {
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.warn('Failed to load web-vitals:', error);
-      }
-    });
+    return () => clearTimeout(timer);
   }, []);
 
   // This component doesn't render anything

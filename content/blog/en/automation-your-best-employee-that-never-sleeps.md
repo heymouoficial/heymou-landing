@@ -104,4 +104,4 @@ Your best employee is waiting. You just need to activate it.
 
 ---
 
-**Ready to free up 20+ weekly hours?** [Let's talk about your automation strategy](mailto:hi@heymou.com) and transform your business together.
+**Ready to free up 20+ weekly hours?** [Let's talk about your automation strategy](mailto:soymoisesvera@gmail.com) and transform your business together.

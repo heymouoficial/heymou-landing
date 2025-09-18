@@ -180,7 +180,7 @@ export function generateStructuredData(config: SEOConfig & {
         '@type': 'ContactPoint',
         contactType: 'customer service',
         availableLanguage: ['Spanish', 'English'],
-        email: 'hola@heymou.com'
+        email: 'soymoisesvera@gmail.com'
       }
     ],
     founder: {
@@ -386,7 +386,7 @@ export function generateStructuredData(config: SEOConfig & {
       description: config.description,
       url: baseUrl,
       telephone: '+1-XXX-XXX-XXXX', // Update with actual phone
-      email: 'hola@heymou.com',
+      email: 'soymoisesvera@gmail.com',
       openingHoursSpecification: config.businessHours.map(hours => ({
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: hours.dayOfWeek,

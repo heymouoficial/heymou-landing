@@ -1,20 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
+import '../../lib/security'; // Validate environment on startup
 
 import './globals.css';
 import WebVitals from '../../components/analytics/WebVitals';
 import SmartPreloader from '../../components/performance/SmartPreloader';
 import PerformanceMonitor from '../../components/performance/PerformanceMonitor';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'HeyMou | Tu Aliado Tecnológico - Transformando Ideas en Realidad Digital',
@@ -90,11 +83,12 @@ export default function RootLayout({
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased"
       >
         <WebVitals />
         <SmartPreloader />
         <PerformanceMonitor />
+        <SpeedInsights />
         {children}
       </body>
     </html>

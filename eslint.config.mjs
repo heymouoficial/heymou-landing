@@ -1,5 +1,6 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
 import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -43,6 +44,12 @@ const eslintConfig = [
       'no-debugger': 'error',
       'prefer-const': 'error',
       'no-var': 'error',
+
+      // Security rules
+      'no-eval': 'error',
+      'no-implied-eval': 'error',
+      'no-new-func': 'error',
+      'no-script-url': 'error',
 
       // Import organization
       'import/order': [

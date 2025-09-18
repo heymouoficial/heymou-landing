@@ -113,4 +113,4 @@ Ready to transform your website into a results-generating machine? As your techn
 
 ---
 
-**Did this article resonate with you?** Share it with other entrepreneurs who need to hear this truth. And if you want us to analyze your current website, [let's talk about your project](mailto:hi@heymou.com).
+**Did this article resonate with you?** Share it with other entrepreneurs who need to hear this truth. And if you want us to analyze your current website, [let's talk about your project](mailto:soymoisesvera@gmail.com).

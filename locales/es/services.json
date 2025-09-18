@@ -1,38 +1,38 @@
 {
-  "badge": "Cómo Te Ayudo",
-  "title": "Tu Aliado Tecnológico Integral",
-  "subtitle": "Desde la idea hasta la implementación, te acompaño en cada paso del camino. Estrategia, diseño y desarrollo que transforma sueños en realidad digital.",
+  "badge": "Mi Enfoque Estratégico",
+  "title": "Transformación Digital Ultra-Eficiente",
+  "subtitle": "Fusiono estrategia, diseño y tecnología para crear productos inevitables. Mi metodología probada acelera tu crecimiento mientras reduce costos operativos en un 60%.",
   "items": [
     {
-      "title": "Estrategia & Consultoría",
-      "description": "Transformo tu visión en un plan ejecutable. Como tu aliado tecnológico, analizo profundamente tu negocio para crear roadmaps claros y decisiones inteligentes.",
+      "title": "Branding Multisensorial + IA",
+      "description": "Construyo marcas que se vuelven inevitables. Combino estrategia de marca con IA para crear experiencias que tus clientes no pueden resistir, generando lealtad automática.",
       "points": [
-        "Arquitectura de soluciones escalables",
-        "Estrategia tecnológica personalizada",
-        "Optimización de procesos digitales"
+        "Estrategia de marca con IA integrada",
+        "Experiencias multisensoriales únicas",
+        "ROI medible en engagement del 300%"
       ]
     },
     {
-      "title": "Diseño & Experiencia",
-      "description": "Interfaces que conectan emocionalmente con tu audiencia. Diseño centrado en el usuario que convierte visitantes en clientes fieles y comprometidos.",
+      "title": "Lean UX + Conversión Optimizada",
+      "description": "Diseño que vende desde el primer clic. Mi enfoque Lean UX reduce tiempo de desarrollo en 40% mientras aumenta conversiones en 150% con interfaces intuitivas y persuasivas.",
       "points": [
-        "Diseño UX/UI que convierte",
-        "Prototipado interactivo rápido",
-        "Sistemas de diseño escalables"
+        "Prototipado ultra-rápido con IA",
+        "Optimización de conversión integrada",
+        "Interfaces que generan acción inmediata"
       ]
     },
     {
-      "title": "Desarrollo & Automatización",
-      "description": "Código limpio, escalable y eficiente que crece contigo. Desarrollo full-stack e integraciones inteligentes que potencian y automatizan tu negocio.",
+      "title": "Automatización Inteligente + Escalabilidad",
+      "description": "Sistemas que crecen solos. Desarrollo soluciones que automatizan operaciones complejas, liberando tu tiempo para estrategia mientras escalan sin límites técnicos.",
       "points": [
-        "Aplicaciones web y móviles robustas",
-        "Integraciones API complejas",
-        "Automatización de flujos de trabajo"
+        "Automatización de procesos críticos",
+        "Arquitectura serverless escalable",
+        "Integraciones IA para eficiencia máxima"
       ]
     }
   ],
   "cta": {
-    "question": "¿Listo para transformar tu sueño en realidad digital?",
-    "button": "Hablemos de tu proyecto"
+    "question": "¿Quieres resultados que se vendan solos?",
+    "button": "Descubre mi metodología probada"
   }
 }

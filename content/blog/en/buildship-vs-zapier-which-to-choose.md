@@ -173,4 +173,4 @@ The key is not to choose the most popular tool, but **the one that will grow wit
 
 ---
 
-**Not sure which tool is right for your business?** [Let's analyze your specific case](mailto:hi@heymou.com) and design the perfect automation strategy.
+**Not sure which tool is right for your business?** [Let's analyze your specific case](mailto:soymoisesvera@gmail.com) and design the perfect automation strategy.
